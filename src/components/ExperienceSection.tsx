@@ -19,7 +19,9 @@ export function ExperienceSection() {
               >
                 <span className="timeline-period">{milestone.period}</span>
                 <h3>{milestone.title}</h3>
-                <p>{milestone.description}</p>
+                {milestone.description.map((desc) => (
+                  <p key={desc}>{desc}</p>
+                ))}
               </div>
 
               <div className="timeline-node" aria-hidden="true">
@@ -30,7 +32,11 @@ export function ExperienceSection() {
                 className={`timeline-highlight glass-card ${isRight ? "align-right" : ""}`}
               >
                 <h4>{milestone.highlightLabel}</h4>
-                <p>{milestone.highlightText}</p>
+                <ul className="detail-list">
+                  {milestone.highlightText.map((text) => (
+                    <li key={text}>{text}</li>
+                  ))}
+                </ul>
               </div>
             </article>
           );

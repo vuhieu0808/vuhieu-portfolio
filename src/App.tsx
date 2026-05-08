@@ -13,8 +13,8 @@ function App() {
     <div className="app-shell">
       <header className="site-header">
         <div className="container header-inner">
-          <a className="brand" href="#top" aria-label="SYS_ARCH home">
-            SYS_ARCH
+          <a className="brand" href="#top" aria-label="PORTFOLIO home">
+            PORTFOLIO
           </a>
 
           <nav className="site-nav" aria-label="Primary">
@@ -42,9 +42,9 @@ function App() {
 
       <footer className="site-footer">
         <div className="container footer-inner">
-          <div className="footer-brand">SYS_ARCH // v4.0.1</div>
+          <div className="footer-brand">PORTFOLIO</div>
           <div className="footer-copy">
-            © 2024 ARCH_STABLE. Built for performance.
+            Built by <span className="footer-brand">vuhieu</span> - &copy; 2024. All rights reserved.
           </div>
           <div className="footer-links">
             <a href="#projects">Source</a>

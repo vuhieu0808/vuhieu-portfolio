@@ -59,7 +59,7 @@ export type ProjectDetail = {
   metrics: ProjectDetailMetric[];
   actionButtons: string[];
   footerLabel: string;
-  footerButtons: string[];
+  footerButtons: { label: string; link: string }[];
 };
 
 export type BlogPost = {
@@ -90,20 +90,20 @@ export type BlogDetail = {
   points: string[];
   relatedTitle: string;
   footerStats: BlogDetailAction[];
-  footerButtons: string[];
+  footerButtons: { label: string; link: string }[];
 };
 
 export type Skill = {
   icon: string;
-  label: string;
+  label: string[];
 };
 
 export type Milestone = {
   period: string;
   title: string;
-  description: string;
+  description: string[];
   highlightLabel: string;
-  highlightText: string;
+  highlightText: string[];
   align?: "left" | "right";
 };
 
@@ -191,7 +191,11 @@ export const projects: Project[] = [
       ],
       actionButtons: ["Access Source Code", "Technical Docs"],
       footerLabel: "SYS_ARCH // ARCH_STABLE_V2",
-      footerButtons: ["Documentation", "API Reference", "Contact Engineering"],
+      footerButtons: [
+        { label: "Documentation", link: "#documentation" },
+        { label: "API Reference", link: "#api" },
+        { label: "Contact Engineering", link: "#contact" },
+      ],
     },
   },
   {
@@ -268,7 +272,11 @@ export const projects: Project[] = [
       ],
       actionButtons: ["Access Source Code", "Technical Docs"],
       footerLabel: "SYS_ARCH // ARCH_STABLE_V2",
-      footerButtons: ["Documentation", "API Reference", "Contact Engineering"],
+      footerButtons: [
+        { label: "Documentation", link: "#documentation" },
+        { label: "API Reference", link: "#api" },
+        { label: "Contact Engineering", link: "#contact" },
+      ],
     },
   },
   {
@@ -346,7 +354,11 @@ export const projects: Project[] = [
       ],
       actionButtons: ["Access Source Code", "Technical Docs"],
       footerLabel: "SYS_ARCH // ARCH_STABLE_V2",
-      footerButtons: ["Documentation", "API Reference", "Contact Engineering"],
+      footerButtons: [
+        { label: "Documentation", link: "#documentation" },
+        { label: "API Reference", link: "#api" },
+        { label: "Contact Engineering", link: "#contact" },
+      ],
     },
   },
   {
@@ -424,7 +436,11 @@ export const projects: Project[] = [
       ],
       actionButtons: ["Access Source Code", "Technical Docs"],
       footerLabel: "SYS_ARCH // ARCH_STABLE_V2",
-      footerButtons: ["Documentation", "API Reference", "Contact Engineering"],
+      footerButtons: [
+        { label: "Documentation", link: "#documentation" },
+        { label: "API Reference", link: "#api" },
+        { label: "Contact Engineering", link: "#contact" },
+      ],
     },
   },
 ];
@@ -462,7 +478,10 @@ export const blogPosts: BlogPost[] = [
         { label: "128 APPLAUDS", icon: "thumb_up" },
         { label: "EXPORT ARCHIVE", icon: "share" },
       ],
-      footerButtons: ["Dismiss", "Subscribe to Updates"],
+      footerButtons: [
+        { label: "Dismiss", link: "#" },
+        { label: "Subscribe to Updates", link: "#" },
+      ],
     },
   },
   {
@@ -497,7 +516,10 @@ export const blogPosts: BlogPost[] = [
         { label: "128 APPLAUDS", icon: "thumb_up" },
         { label: "EXPORT ARCHIVE", icon: "share" },
       ],
-      footerButtons: ["Dismiss", "Subscribe to Updates"],
+      footerButtons: [
+        { label: "Dismiss", link: "#" },
+        { label: "Subscribe to Updates", link: "#" },
+      ],
     },
   },
   {
@@ -532,45 +554,47 @@ export const blogPosts: BlogPost[] = [
         { label: "128 APPLAUDS", icon: "thumb_up" },
         { label: "EXPORT ARCHIVE", icon: "share" },
       ],
-      footerButtons: ["Dismiss", "Subscribe to Updates"],
+      footerButtons: [
+        { label: "Dismiss", link: "#" },
+        { label: "Subscribe to Updates", link: "#" },
+      ],
     },
   },
 ];
 
 export const skills: Skill[] = [
-  { icon: "hub", label: "Distributed Systems" },
-  { icon: "cloud", label: "Cloud Infrastructure (AWS/GCP)" },
-  { icon: "speed", label: "C++ / Performance Tuning" },
-  { icon: "psychology", label: "Python / AI Pipelines" },
-  { icon: "database", label: "PostgreSQL / NoSQL Optimization" },
-  { icon: "terminal", label: "Kubernetes / DevOps" },
+  { icon: "terminal", label: ["C/C++", "Python", "JS/TS"] },
+  { icon: "storage", label: ["PostgreSQL", "MongoDB", "Firebase"] },
+  { icon: "settings", label: ["Linux/WSL", "Git", "VSCode"] },
+  { icon: "code", label: ["Node.js", "System Design"] },
+  { icon: "tools", label: ["Postman", "Burp Suite"] }
 ];
 
 export const milestones: Milestone[] = [
   {
-    period: "2022 — PRESENT",
-    title: "Senior Backend Architect",
-    description:
-      "Leading the transition from monolith to event-driven microservices for a fintech scale-up. Improved system availability from 99.9% to 99.995%.",
-    highlightLabel: "Key Result",
-    highlightText:
-      "Reduced API latency by 60% through custom caching and protocol buffers.",
+    period: "2024 - PRESENT",
+    title: "HCM University of Science",
+    description: [
+      "Bachelor of Science in Information Technology.",
+      "Current Year: Second-year student",
+      "GPA: 3.9/4.0",
+    ],
+    highlightLabel: "Achievements",
+    highlightText: [
+      "Dean's List - Academic Year 2024-2025.",
+      'Semifinalist - "Thach Thuc" Academic Competition 2024.',
+    ],
   },
   {
-    period: "2020 — 2022",
-    title: "Systems Engineer",
-    description:
-      "Designed and maintained high-throughput ingestion pipelines for real-time telemetry data. Managed a 50-node Kubernetes cluster.",
-    highlightLabel: "Recognition",
-    highlightText:
-      "Awarded 'Engineer of the Year' for infrastructure cost optimization project (-30% YoY).",
-  },
-  {
-    period: "2019",
-    title: "Hackathon Winner: Global Scalability",
-    description:
-      "Built a serverless, geo-distributed file sharing system in 48 hours using edge computing and WebRTC for direct peering.",
-    highlightLabel: "Achievement",
-    highlightText: "1st Place out of 200+ global engineering teams.",
+    period: "2021 - 2024",
+    title: "Gia Dinh High School",
+    description: ["Studied in Informatics Gifted Class."],
+    highlightLabel: "Achievements",
+    highlightText: [
+      "Third Prize - National Academic Competition for Gifted Students in Informatics.",
+      "Third Prize - National Youth Informatics Competition.",
+      "First Prize -  City-level Excellent Student Competition in Informatics.",
+      "Silver Medal - April 30th Olympic Traditional Competition in Informatics.",
+    ],
   },
 ];

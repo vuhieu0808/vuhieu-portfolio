@@ -18,16 +18,16 @@ export function IntroSection() {
         </div>
 
         <div className="hero-copy span-7">
-          <div className="eyebrow">System Architect // v4.0.1</div>
+          {/* <div className="eyebrow">System Architect // v4.0.1</div> */}
           <h1>
             Vũ Trần Minh Hiếu
             <br />
             <span></span>
           </h1>
           <p className="lead">
-            Specializing in high-concurrency architectures, distributed data
-            processing, and cloud-native infrastructure. I design systems where
-            stability under load isn't a goal, it's the baseline.
+            I'm a second-year IT student focused on backend development and
+            systems programming. I enjoy building with Node.js and C/C++,
+            solving technical problems, and learning through personal projects.
           </p>
         </div>
       </div>

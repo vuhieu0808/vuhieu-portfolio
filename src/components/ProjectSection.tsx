@@ -12,7 +12,7 @@ export function ProjectSection() {
     <section className="container section-block" id="projects">
       <SectionHeader
         title="Projects"
-        description="Architectural solutions for complex data problems."
+        description="Personal projects and Academic Projects."
         meta={`Index: ${projects.length}`}
       />
 
@@ -36,10 +36,10 @@ export function ProjectSection() {
               <div className="project-image-overlay" />
             </div>
             <div className="project-body">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-description">{project.description}</p>
               <div className="tag-row">
-                {project.tags.map((tag) => (
+                {project.tags.slice(0, 3).map((tag) => (
                   <span key={tag} className="tech-chip">
                     {tag}
                   </span>
@@ -174,7 +174,7 @@ export function ProjectSection() {
                   </h3>
                   <ul className="detail-list">
                     {detail.lessonsSection.items.map((lesson) => (
-                      <li key={lesson}>{lesson}</li>
+                      <p>{lesson}</p>
                     ))}
                   </ul>
                 </section>
@@ -228,9 +228,18 @@ export function ProjectSection() {
             <footer className="project-modal-footer">
               <span>{detail.footerLabel}</span>
               <div>
-                {detail.footerButtons.map((label) => (
-                  <button key={label} type="button">
-                    {label}
+                {detail.footerButtons.map((btn) => (
+                  <button key={btn.label} type="button" onClick={() => {
+                    window.location.href = btn.link;
+                    if (btn.link.startsWith("#")) {
+                      const targetElement = document.querySelector(btn.link);
+                      if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: "smooth" });
+                        setSelectedProject(null);
+                      }
+                    }
+                  }}>
+                    {btn.label}
                   </button>
                 ))}
               </div>

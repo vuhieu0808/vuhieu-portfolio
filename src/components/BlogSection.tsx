@@ -170,17 +170,27 @@ export function BlogSection() {
                 ))}
               </div>
               <div>
-                {detail.footerButtons.map((label, index) => (
+                {detail.footerButtons.map((btn, index) => (
                   <button
-                    key={label}
+                    key={btn.label}
                     type="button"
                     className={
                       index === 0
                         ? "button button-outline"
                         : "button button-primary"
                     }
+                    onClick={() => {
+                      window.location.href = btn.link;
+                      if (btn.link.startsWith("#")) {
+                        const targetElement = document.querySelector(btn.link);
+                        if (targetElement) {
+                          targetElement.scrollIntoView({ behavior: "smooth" });
+                          setSelectedPost(null);
+                        }
+                      }
+                    }}
                   >
-                    {label}
+                    {btn.label}
                   </button>
                 ))}
               </div>
