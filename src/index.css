@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@0..400,0..1&display=swap");
+
+:root {
+  --background: #051424;
+  --surface: #051424;
+  --surface-dim: #051424;
+  --surface-container-lowest: #010f1f;
+  --surface-container-low: #0d1c2d;
+  --surface-container: #122131;
+  --surface-container-high: #1c2b3c;
+  --surface-container-highest: #273647;
+  --surface-bright: #2c3a4c;
+  --surface-variant: #273647;
+  --on-surface: #d4e4fa;
+  --on-surface-variant: #bbcabf;
+  --primary: #4edea3;
+  --on-primary: #003824;
+  --primary-container: #10b981;
+  --outline: #86948a;
+  --outline-variant: #3c4a42;
+  --error: #ffb4ab;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --container-max: 1200px;
+  --edge-margin: 2rem;
+  --stack-gap: 1.5rem;
+  --section-gap: 8rem;
+
+  color-scheme: dark;
+  color: var(--on-surface);
+  background: var(--background);
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--on-surface);
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(16, 185, 129, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(78, 222, 163, 0.08),
+      transparent 26%
+    ),
+    linear-gradient(180deg, #051424 0%, #010f1f 100%);
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: "Inter", sans-serif;
+}
+
+a,
+button,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(78, 222, 163, 0.72);
+  outline-offset: 3px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+  line-height: 1;
+}
+
+::selection {
+  background: rgba(16, 185, 129, 0.25);
+  color: var(--on-surface);
+}
