@@ -34,7 +34,7 @@ function App() {
       <main id="top" className="page-content">
         <IntroSection />
         <ProjectSection />
-        <BlogSection />
+        {/* <BlogSection /> */}
         <SkillSection />
         <ExperienceSection />
         <ContactSection />

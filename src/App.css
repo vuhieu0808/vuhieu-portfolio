@@ -163,11 +163,17 @@
 }
 
 .hero-section {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  align-items: center;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
   padding: 5rem 0 2rem;
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: center;
 }
 
 .span-7 {
@@ -264,7 +270,137 @@ h4 {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 0rem;
+}
+
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  gap: 0.5rem;
+}
+
+.avatar-glow-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Lớp bóng mờ tỏa rộng nhất */
+.avatar-glow-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 300px; /* To hơn avatar một chút */
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(78, 222, 163, 0.25); /* Màu primary của bạn */
+  filter: blur(50px);
+  z-index: 0;
+  animation: pulse-glow 4s infinite alternate;
+}
+
+.avatar-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 20rem;
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(78, 222, 163, 0.25);
+  background: rgba(16, 185, 129, 0.05);
+  /* box-shadow:
+    0 24px 48px rgba(1, 15, 31, 0.45),
+    inset 0 1px 0 rgba(78, 222, 163, 0.1); */
+  box-shadow: 
+    0 0 20px rgba(78, 222, 163, 0.2),
+    inset 0 0 15px rgba(78, 222, 163, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.avatar-container::before {
+  content: "";
+  position: absolute;
+  inset: -1.5rem;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.08);
+  filter: blur(32px);
+  z-index: -1;
+}
+
+.avatar-glow-wrapper:hover .avatar-container {
+  transform: scale(1.02);
+  border-color: rgba(78, 222, 163, 0.8);
+  box-shadow: 
+    0 0 40px rgba(78, 222, 163, 0.4),
+    inset 0 0 20px rgba(78, 222, 163, 0.2);
+}
+
+/* Animation cho bóng mờ "thở" nhẹ nhàng */
+@keyframes pulse-glow {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.social-wrapper {
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang của cột 5 */
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.social-link {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(78, 222, 163, 0.3);
+  background: rgba(16, 185, 129, 0.08);
+  color: var(--on-surface-variant);
+  transition:
+    all 200ms ease,
+    transform 200ms ease;
+}
+
+.social-link:hover {
+  color: var(--primary);
+  border-color: rgba(78, 222, 163, 0.6);
+  background: rgba(16, 185, 129, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.1);
+}
+
+.social-link:focus-visible {
+  outline: 2px solid rgba(78, 222, 163, 0.75);
+  outline-offset: 3px;
+}
+
+.social-link svg {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .glass-card {
@@ -1434,6 +1570,21 @@ h4 {
 
   .three-up {
     display: grid;
+  }
+
+  .grid-12 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .social-wrapper, .hero-actions {
+    justify-content: flex-start;
+    grid-column: auto;
+  }
+  
+  .hero-main-row, .hero-footer-row {
+    display: flex;
+    flex-direction: column;
   }
 }
 

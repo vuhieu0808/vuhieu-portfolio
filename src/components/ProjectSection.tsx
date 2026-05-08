@@ -6,13 +6,14 @@ import { SectionHeader } from "./SectionHeader";
 
 export function ProjectSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const detail = selectedProject?.detail;
 
   return (
     <section className="container section-block" id="projects">
       <SectionHeader
-        title="Selected Projects"
+        title="Projects"
         description="Architectural solutions for complex data problems."
-        meta="Index: 03"
+        meta={`Index: ${projects.length}`}
       />
 
       <div className="card-grid three-up">
@@ -53,10 +54,9 @@ export function ProjectSection() {
         isOpen={Boolean(selectedProject)}
         panelClassName="project-modal"
         closeClassName="project-modal-close"
-        closeLabel=""
         onClose={() => setSelectedProject(null)}
       >
-        {selectedProject ? (
+        {selectedProject && detail ? (
           <div className="project-modal-layout">
             <header className="project-modal-hero">
               <img
@@ -73,7 +73,7 @@ export function ProjectSection() {
                     </span>
                   ))}
                 </div>
-                <h2>Project: {selectedProject.title}</h2>
+                <h2>{detail.heroTitle}</h2>
               </div>
             </header>
 
@@ -85,11 +85,11 @@ export function ProjectSection() {
                       className="material-symbols-outlined"
                       aria-hidden="true"
                     >
-                      description
+                      {detail.roleSection.icon}
                     </span>
-                    TECHNICAL_SUMMARY
+                    {detail.roleSection.title}
                   </h3>
-                  <p>{selectedProject.detailIntro}</p>
+                  <p>{detail.roleSection.description}</p>
                 </section>
 
                 <section>
@@ -98,9 +98,22 @@ export function ProjectSection() {
                       className="material-symbols-outlined"
                       aria-hidden="true"
                     >
-                      account_tree
+                      {detail.summarySection.icon}
                     </span>
-                    SYSTEM_ARCHITECTURE
+                    {detail.summarySection.title}
+                  </h3>
+                  <p>{detail.summarySection.description}</p>
+                </section>
+
+                <section>
+                  <h3 className="project-modal-section-title">
+                    <span
+                      className="material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      {detail.architectureSection.icon}
+                    </span>
+                    {detail.architectureSection.title}
                   </h3>
                   <div className="project-modal-architecture">
                     <span
@@ -109,10 +122,7 @@ export function ProjectSection() {
                     >
                       memory
                     </span>
-                    <p>
-                      [INTERACTIVE_SCHEMA: services topology, message broker,
-                      and cache layer]
-                    </p>
+                    <p>{detail.architectureSection.description}</p>
                   </div>
                 </section>
 
@@ -122,15 +132,15 @@ export function ProjectSection() {
                       className="material-symbols-outlined"
                       aria-hidden="true"
                     >
-                      bolt
+                      {detail.challengesSection.icon}
                     </span>
-                    CHALLENGES_&_RESOLUTIONS
+                    {detail.challengesSection.title}
                   </h3>
 
                   <div className="project-modal-challenges">
-                    {selectedProject.detailHighlights.map((item, index) => (
+                    {detail.challenges.map((item) => (
                       <article
-                        key={item}
+                        key={item.title}
                         className="project-modal-challenge-item"
                       >
                         <div
@@ -141,25 +151,38 @@ export function ProjectSection() {
                           <i />
                         </div>
                         <div>
-                          <h4>
-                            CHALLENGE_{String(index + 1).padStart(2, "0")}
-                          </h4>
-                          <p>{item}</p>
+                          <h4>{item.title}</h4>
+                          <p>{item.description}</p>
                           <div className="project-modal-solution">
-                            SOLUTION:{" "}
-                            {selectedProject.detailOutcomes[index] ??
-                              "Optimization applied based on production tracing insights."}
+                            SOLUTION: {item.solution}
                           </div>
                         </div>
                       </article>
                     ))}
                   </div>
                 </section>
+
+                <section>
+                  <h3 className="project-modal-section-title">
+                    <span
+                      className="material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      {detail.lessonsSection.icon}
+                    </span>
+                    {detail.lessonsSection.title}
+                  </h3>
+                  <ul className="detail-list">
+                    {detail.lessonsSection.items.map((lesson) => (
+                      <li key={lesson}>{lesson}</li>
+                    ))}
+                  </ul>
+                </section>
               </div>
 
               <aside className="project-modal-side">
                 <div className="project-modal-side-card">
-                  <h4>Core_Stack</h4>
+                  <h4>{detail.coreStackTitle}</h4>
                   <div className="project-modal-tags">
                     {selectedProject.tags.map((tag) => (
                       <span key={tag}>{tag}</span>
@@ -168,55 +191,48 @@ export function ProjectSection() {
                 </div>
 
                 <div className="project-modal-side-card">
-                  <h4>Vitals_Dashboard</h4>
+                  <h4>{detail.vitalsTitle}</h4>
                   <div className="project-modal-metrics">
-                    <div>
-                      <div className="metric-head">
-                        <span>THROUGHPUT</span>
-                        <span>98% OPTIMIZED</span>
+                    {detail.metrics.map((metric) => (
+                      <div key={metric.label}>
+                        <div className="metric-head">
+                          <span>{metric.label}</span>
+                          <span>{metric.value}</span>
+                        </div>
+                        <div className="metric-bar">
+                          <i style={{ width: metric.width }} />
+                        </div>
                       </div>
-                      <div className="metric-bar">
-                        <i style={{ width: "98%" }} />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="metric-head">
-                        <span>UPTIME</span>
-                        <span>99.999%</span>
-                      </div>
-                      <div className="metric-bar">
-                        <i style={{ width: "99.9%" }} />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="metric-head">
-                        <span>DATA_RELIABILITY</span>
-                        <span>SECURE</span>
-                      </div>
-                      <div className="metric-bar">
-                        <i style={{ width: "85%" }} />
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
 
                 <div className="project-modal-actions">
-                  <button type="button" className="button button-primary">
-                    Access Source Code
-                  </button>
-                  <button type="button" className="button button-outline">
-                    Technical Docs
-                  </button>
+                  {detail.actionButtons.map((label, index) => (
+                    <button
+                      key={label}
+                      type="button"
+                      className={
+                        index === 0
+                          ? "button button-primary"
+                          : "button button-outline"
+                      }
+                    >
+                      {label}
+                    </button>
+                  ))}
                 </div>
               </aside>
             </div>
 
             <footer className="project-modal-footer">
-              <span>SYS_ARCH // ARCH_STABLE_V2</span>
+              <span>{detail.footerLabel}</span>
               <div>
-                <button type="button">Documentation</button>
-                <button type="button">API Reference</button>
-                <button type="button">Contact Engineering</button>
+                {detail.footerButtons.map((label) => (
+                  <button key={label} type="button">
+                    {label}
+                  </button>
+                ))}
               </div>
             </footer>
           </div>

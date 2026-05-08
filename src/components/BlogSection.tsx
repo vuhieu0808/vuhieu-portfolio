@@ -6,6 +6,7 @@ import { SectionHeader } from "./SectionHeader";
 
 export function BlogSection() {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  const detail = selectedPost?.detail;
 
   const relatedPosts = selectedPost
     ? blogPosts.filter((post) => post.title !== selectedPost.title).slice(0, 2)
@@ -55,15 +56,14 @@ export function BlogSection() {
         isOpen={Boolean(selectedPost)}
         panelClassName="blog-modal"
         closeClassName="blog-modal-close"
-        closeLabel=""
         onClose={() => setSelectedPost(null)}
       >
-        {selectedPost ? (
+        {selectedPost && detail ? (
           <article className="blog-modal-layout">
             <header className="blog-modal-header">
               <div>
                 <div className="blog-modal-kicker-row">
-                  <span>Engineering Deep Dive</span>
+                  <span>{detail.kickerLabel}</span>
                   <i aria-hidden="true" />
                   <span>{selectedPost.date}</span>
                 </div>
@@ -74,8 +74,8 @@ export function BlogSection() {
             <div className="blog-modal-scroll">
               <div className="blog-modal-hero">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5o-GgqCL8mgsiQLU6KaW1ELy1DESTyhq68oIhTy515Hm9QyNstzTPs7noB8YaLdrtP8ZrE31uL19X51X9BXi_3hidOh3yQrR1_ydxGEmxbismJXXhfciCywYmthi6trzi8y1SKgkcWSltU4-6NrvGvwkY1NTeBdjJVOLkx2QLv37mgaOldkYGAxFPh802psU1RLKFY38c5fEzQ7xLda_7gmeGlrQxv-EP04Xuap2a80rYKhX3laV--mxUpQvRR4CjFmxjTNLcqzY"
-                  alt="Cinematic server room with emerald indicators"
+                  src={detail.heroImage}
+                  alt={detail.heroAlt}
                   loading="lazy"
                 />
                 <div className="blog-modal-hero-overlay" />
@@ -103,18 +103,14 @@ export function BlogSection() {
               </div>
 
               <div className="blog-modal-article">
-                <p>{selectedPost.detailSummary}</p>
+                <p>{detail.overviewText}</p>
 
-                <h3>Implementation Highlights</h3>
-                <p>
-                  Managing concurrency and consistency in distributed systems
-                  requires more than generic defaults. The article focuses on
-                  operational choices that hold under real production load.
-                </p>
+                <h3>{detail.overviewTitle}</h3>
+                <p>{detail.implementationText}</p>
 
                 <div className="blog-modal-code">
                   <div className="blog-modal-code-head">
-                    <span>distributed_lock.go</span>
+                    <span>{detail.codeFileName}</span>
                     <span
                       className="material-symbols-outlined"
                       aria-hidden="true"
@@ -123,20 +119,14 @@ export function BlogSection() {
                     </span>
                   </div>
                   <pre>
-                    <code>
-                      {`func AcquireLock(ctx context.Context, key string) bool {
-  val := uuid.New().String()
-  ok, err := rdb.SetNX(ctx, key, val, 10*time.Second).Result()
-  return err == nil && ok
-}`}
-                    </code>
+                    <code>{detail.codeSnippet}</code>
                   </pre>
                 </div>
 
                 <div className="detail-block blog-modal-points">
-                  <h4>Key Points</h4>
+                  <h4>{detail.pointsTitle}</h4>
                   <ul className="detail-list">
-                    {selectedPost.detailPoints.map((point) => (
+                    {detail.points.map((point) => (
                       <li key={point}>{point}</li>
                     ))}
                   </ul>
@@ -144,7 +134,7 @@ export function BlogSection() {
               </div>
 
               <section className="blog-modal-related">
-                <h4>Related Technical Briefs</h4>
+                <h4>{detail.relatedTitle}</h4>
                 <div className="blog-modal-related-grid">
                   {relatedPosts.map((post, index) => (
                     <article
@@ -167,32 +157,32 @@ export function BlogSection() {
 
             <footer className="blog-modal-footer">
               <div>
-                <button type="button">
-                  <span
-                    className="material-symbols-outlined"
-                    aria-hidden="true"
-                  >
-                    thumb_up
-                  </span>
-                  <span>128 APPLAUDS</span>
-                </button>
-                <button type="button">
-                  <span
-                    className="material-symbols-outlined"
-                    aria-hidden="true"
-                  >
-                    share
-                  </span>
-                  <span>EXPORT ARCHIVE</span>
-                </button>
+                {detail.footerStats.map((action) => (
+                  <button key={action.label} type="button">
+                    <span
+                      className="material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      {action.icon}
+                    </span>
+                    <span>{action.label}</span>
+                  </button>
+                ))}
               </div>
               <div>
-                <button type="button" className="button button-outline">
-                  Dismiss
-                </button>
-                <button type="button" className="button button-primary">
-                  Subscribe to Updates
-                </button>
+                {detail.footerButtons.map((label, index) => (
+                  <button
+                    key={label}
+                    type="button"
+                    className={
+                      index === 0
+                        ? "button button-outline"
+                        : "button button-primary"
+                    }
+                  >
+                    {label}
+                  </button>
+                ))}
               </div>
             </footer>
           </article>
