@@ -174,7 +174,7 @@ export function ProjectSection() {
                   </h3>
                   <ul className="detail-list">
                     {detail.lessonsSection.items.map((lesson) => (
-                      <p>{lesson}</p>
+                      <li key={lesson}>{lesson}</li>
                     ))}
                   </ul>
                 </section>
@@ -229,16 +229,20 @@ export function ProjectSection() {
               <span>{detail.footerLabel}</span>
               <div>
                 {detail.footerButtons.map((btn) => (
-                  <button key={btn.label} type="button" onClick={() => {
-                    window.location.href = btn.link;
-                    if (btn.link.startsWith("#")) {
-                      const targetElement = document.querySelector(btn.link);
-                      if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: "smooth" });
-                        setSelectedProject(null);
+                  <button
+                    key={btn.label}
+                    type="button"
+                    onClick={() => {
+                      window.location.href = btn.link;
+                      if (btn.link.startsWith("#")) {
+                        const targetElement = document.querySelector(btn.link);
+                        if (targetElement) {
+                          targetElement.scrollIntoView({ behavior: "smooth" });
+                          setSelectedProject(null);
+                        }
                       }
-                    }
-                  }}>
+                    }}
+                  >
                     {btn.label}
                   </button>
                 ))}

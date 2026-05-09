@@ -2,29 +2,33 @@ import vuhieu from "../assets/vuhieu.webp";
 
 export function IntroSection() {
   return (
-    <section className="hero-section container">
+    <section className="container flex flex-col gap-10 py-20 pb-10">
       {/* Hàng 1: Ảnh (trái) + Tên & Summary (phải) */}
-      <div className="grid-12 hero-main-row">
-        <div className="avatar-section span-5">
-          <div className="avatar-glow-wrapper">
-            <div className="avatar-container">
+      <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-12">
+        <div className="md:col-span-5">
+          <div className="relative mx-auto w-full max-w-sm md:mx-0">
+            <div
+              className="absolute -inset-6 rounded-full bg-emerald/25 blur-3xl"
+              aria-hidden="true"
+            />
+            <div className="relative overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-high/70 p-3 backdrop-blur-glass">
               <img
                 src={vuhieu}
                 alt="Portfolio Avatar"
-                className="avatar-image"
+                className="h-full w-full rounded-xl object-cover"
               />
             </div>
           </div>
         </div>
 
-        <div className="hero-copy span-7">
+        <div className="md:col-span-7">
           {/* <div className="eyebrow">System Architect // v4.0.1</div> */}
-          <h1>
+          <h1 className="text-h1 font-bold tracking-[-0.02em] text-on-surface">
             Vũ Trần Minh Hiếu
             <br />
             <span></span>
           </h1>
-          <p className="lead">
+          <p className="mt-5 max-w-2xl text-body-lg leading-relaxed text-on-surface-variant">
             I'm a second-year IT student focused on backend development and
             systems programming. I enjoy building with Node.js and C/C++,
             solving technical problems, and learning through personal projects.
@@ -33,9 +37,9 @@ export function IntroSection() {
       </div>
 
       {/* Hàng 2: Social Media (trái) + Actions (phải) */}
-      <div className="grid-12 hero-footer-row">
-        <div className="span-5 social-wrapper">
-          <div className="social-links">
+      <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-12">
+        <div className="md:col-span-5">
+          <div className="flex items-center gap-3">
             <a
               href="https://linkedin.com/in/vuhieu886"
               target="_blank"
@@ -71,11 +75,17 @@ export function IntroSection() {
           </div>
         </div>
 
-        <div className="hero-actions span-7">
-          <a className="button button-primary" href="#projects">
+        <div className="flex flex-wrap gap-3 md:col-span-7 md:justify-start">
+          <a
+            className="border border-transparent bg-primary px-6 py-3 font-mono-label text-mono-label uppercase tracking-widest text-on-primary transition-all hover:brightness-110"
+            href="#projects"
+          >
             View Projects
           </a>
-          <a className="button button-outline" href="#contact">
+          <a
+            className="border border-primary px-6 py-3 font-mono-label text-mono-label uppercase tracking-widest text-primary transition-colors hover:bg-primary/10"
+            href="#contact"
+          >
             Get In Touch
           </a>
         </div>

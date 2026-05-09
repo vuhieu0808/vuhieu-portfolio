@@ -1,101 +1,347 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@0..400,0..1&display=swap");
 
-:root {
-  --background: #051424;
-  --surface: #051424;
-  --surface-dim: #051424;
-  --surface-container-lowest: #010f1f;
-  --surface-container-low: #0d1c2d;
-  --surface-container: #122131;
-  --surface-container-high: #1c2b3c;
-  --surface-container-highest: #273647;
-  --surface-bright: #2c3a4c;
-  --surface-variant: #273647;
-  --on-surface: #d4e4fa;
-  --on-surface-variant: #bbcabf;
-  --primary: #4edea3;
-  --on-primary: #003824;
-  --primary-container: #10b981;
-  --outline: #86948a;
-  --outline-variant: #3c4a42;
-  --error: #ffb4ab;
-  --shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --container-max: 1200px;
-  --edge-margin: 2rem;
-  --stack-gap: 1.5rem;
-  --section-gap: 8rem;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: dark;
-  color: var(--on-surface);
-  background: var(--background);
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color-scheme: dark;
+  }
+
+  a,
+  button,
+  input,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  button {
+    cursor: pointer;
+  }
 }
 
-* {
-  box-sizing: border-box;
-}
+@layer components {
+  .button {
+    @apply inline-flex items-center justify-center gap-2 rounded px-6 py-2 font-semibold transition-all;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  .detail-list {
+    @apply space-y-2 text-sm leading-relaxed text-text-muted;
+  }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  color: var(--on-surface);
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(16, 185, 129, 0.12),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at bottom right,
-      rgba(78, 222, 163, 0.08),
-      transparent 26%
-    ),
-    linear-gradient(180deg, #051424 0%, #010f1f 100%);
-}
+  .detail-block {
+    @apply rounded-lg border border-slate-700/70 bg-surface/40 p-4;
+  }
 
-body,
-input,
-textarea,
-button {
-  font-family: "Inter", sans-serif;
-}
+  .detail-modal-content {
+    @apply h-full overflow-y-auto;
+  }
 
-a,
-button,
-input,
-textarea {
-  -webkit-tap-highlight-color: transparent;
-}
+  .project-modal {
+    @apply border-emerald/70 bg-surface-low;
+  }
 
-img {
-  display: block;
-  max-width: 100%;
-}
+  .project-modal-close {
+    @apply border-slate-600 bg-surface-high text-emerald;
+  }
 
-button,
-input,
-textarea {
-  font: inherit;
-}
+  .project-modal-layout {
+    @apply grid;
+  }
 
-button {
-  cursor: pointer;
+  .project-modal-hero {
+    @apply relative aspect-[16/7] overflow-hidden;
+  }
+
+  .project-modal-hero img {
+    @apply h-full w-full object-cover;
+  }
+
+  .project-modal-hero-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/50 to-transparent;
+  }
+
+  .project-modal-hero-content {
+    @apply absolute inset-x-0 bottom-0 grid gap-3 p-5 md:p-8;
+  }
+
+  .project-modal-chip-row {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .project-modal-chip {
+    @apply rounded border border-emerald/60 bg-emerald-dark/20 px-2 py-1 font-mono text-xs uppercase tracking-wide text-emerald;
+  }
+
+  .project-modal-hero-content h2 {
+    @apply text-h2 font-semibold text-text-light;
+  }
+
+  .project-modal-body {
+    @apply grid gap-6 p-5 lg:grid-cols-[1.6fr_1fr] lg:gap-8 lg:p-8;
+  }
+
+  .project-modal-main {
+    @apply grid gap-8;
+  }
+
+  .project-modal-main p {
+    @apply text-sm leading-relaxed text-text-muted;
+  }
+
+  .project-modal-section-title {
+    @apply mb-3 flex items-center gap-2 text-base font-semibold uppercase tracking-wide text-text-light;
+  }
+
+  .project-modal-section-title .material-symbols-outlined {
+    @apply text-emerald;
+  }
+
+  .project-modal-architecture {
+    @apply flex gap-3 rounded border border-slate-700/80 bg-surface/35 p-4;
+  }
+
+  .project-modal-architecture .material-symbols-outlined {
+    @apply text-emerald;
+  }
+
+  .project-modal-challenges {
+    @apply grid gap-4;
+  }
+
+  .project-modal-challenge-item {
+    @apply grid grid-cols-[auto_1fr] gap-3 rounded border border-slate-700/80 bg-surface/30 p-4;
+  }
+
+  .project-modal-challenge-item h4 {
+    @apply text-sm font-semibold text-text-light;
+  }
+
+  .project-modal-solution {
+    @apply mt-2 font-mono text-xs uppercase tracking-[0.14em] text-emerald;
+  }
+
+  .project-modal-timeline {
+    @apply mt-1 grid place-items-center;
+  }
+
+  .project-modal-timeline span {
+    @apply h-2.5 w-2.5 rounded-full bg-emerald;
+  }
+
+  .project-modal-timeline i {
+    @apply mt-1 h-8 w-px bg-slate-600;
+  }
+
+  .project-modal-side {
+    @apply grid content-start gap-4;
+  }
+
+  .project-modal-side-card {
+    @apply rounded-lg border border-slate-700/70 bg-surface/35 p-4;
+  }
+
+  .project-modal-side-card h4 {
+    @apply mb-3 font-mono text-xs uppercase tracking-[0.14em] text-emerald;
+  }
+
+  .project-modal-tags {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .project-modal-tags span {
+    @apply rounded bg-surface-high px-2 py-1 text-xs text-text-muted;
+  }
+
+  .project-modal-metrics {
+    @apply grid gap-3;
+  }
+
+  .metric-head {
+    @apply mb-1 flex items-center justify-between text-xs text-text-muted;
+  }
+
+  .metric-bar {
+    @apply h-2 overflow-hidden rounded bg-surface-high;
+  }
+
+  .metric-bar i {
+    @apply block h-full rounded bg-emerald;
+  }
+
+  .project-modal-actions {
+    @apply grid gap-2;
+  }
+
+  .project-modal-footer {
+    @apply flex flex-col gap-3 border-t border-slate-700/70 px-5 py-4 text-xs text-text-muted md:flex-row md:items-center md:justify-between lg:px-8;
+  }
+
+  .project-modal-footer > div {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .project-modal-footer button {
+    @apply rounded border border-slate-600 px-3 py-1.5 text-xs transition-colors hover:border-emerald hover:text-emerald;
+  }
+
+  .blog-card {
+    @apply grid gap-3 rounded-lg p-6;
+  }
+
+  .card-date {
+    @apply font-mono text-xs uppercase tracking-[0.15em] text-emerald;
+  }
+
+  .inline-link {
+    @apply inline-flex items-center gap-1 font-mono text-xs uppercase tracking-[0.14em] text-emerald;
+  }
+
+  .inline-link-button {
+    @apply mt-1 w-fit bg-transparent p-0;
+  }
+
+  .blog-modal {
+    @apply border-slate-600 bg-surface;
+  }
+
+  .blog-modal-close {
+    @apply border-slate-600 bg-surface-high text-emerald;
+  }
+
+  .blog-modal-layout {
+    @apply grid;
+  }
+
+  .blog-modal-header {
+    @apply border-b border-slate-700/70 px-5 py-6 lg:px-8;
+  }
+
+  .blog-modal-header h2 {
+    @apply mt-3 text-h2 font-semibold text-text-light;
+  }
+
+  .blog-modal-kicker-row {
+    @apply flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-emerald;
+  }
+
+  .blog-modal-kicker-row i {
+    @apply h-1 w-1 rounded-full bg-emerald;
+  }
+
+  .blog-modal-scroll {
+    @apply grid gap-6 px-5 py-6 lg:px-8;
+  }
+
+  .blog-modal-hero {
+    @apply relative aspect-video overflow-hidden rounded-lg;
+  }
+
+  .blog-modal-hero img {
+    @apply h-full w-full object-cover;
+  }
+
+  .blog-modal-hero-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-obsidian/80 to-transparent;
+  }
+
+  .blog-modal-reading-info {
+    @apply flex flex-wrap gap-3;
+  }
+
+  .blog-modal-reading-info > div {
+    @apply inline-flex items-center gap-2 rounded border border-slate-700/80 bg-surface-low/60 px-3 py-1.5 text-xs uppercase tracking-[0.1em] text-text-muted;
+  }
+
+  .blog-modal-reading-info .material-symbols-outlined {
+    @apply text-emerald;
+  }
+
+  .blog-modal-article {
+    @apply grid gap-4;
+  }
+
+  .blog-modal-article p {
+    @apply text-sm leading-relaxed text-text-muted;
+  }
+
+  .blog-modal-article h3 {
+    @apply text-xl font-semibold text-text-light;
+  }
+
+  .blog-modal-code {
+    @apply overflow-hidden rounded-lg border border-slate-700/80;
+  }
+
+  .blog-modal-code-head {
+    @apply flex items-center justify-between border-b border-slate-700/80 bg-surface-low px-4 py-2 font-mono text-xs uppercase tracking-wide text-text-muted;
+  }
+
+  .blog-modal-code pre {
+    @apply overflow-x-auto bg-obsidian-dark/80 p-4 text-xs leading-relaxed text-slate-200;
+  }
+
+  .blog-modal-points h4 {
+    @apply mb-2 text-sm font-semibold uppercase tracking-wide text-emerald;
+  }
+
+  .blog-modal-related {
+    @apply grid gap-3;
+  }
+
+  .blog-modal-related h4 {
+    @apply text-base font-semibold text-text-light;
+  }
+
+  .blog-modal-related-grid {
+    @apply grid gap-3 md:grid-cols-2;
+  }
+
+  .blog-modal-related-card {
+    @apply rounded-lg border border-slate-700/70 bg-surface-low/45 p-4;
+  }
+
+  .blog-modal-related-card > span {
+    @apply font-mono text-[11px] uppercase tracking-[0.14em] text-emerald;
+  }
+
+  .blog-modal-related-card h5 {
+    @apply my-2 text-sm font-semibold text-text-light;
+  }
+
+  .blog-modal-related-card > div {
+    @apply flex flex-wrap gap-2 text-xs text-text-muted;
+  }
+
+  .blog-modal-footer {
+    @apply flex flex-col gap-3 border-t border-slate-700/70 px-5 py-4 md:flex-row md:items-center md:justify-between lg:px-8;
+  }
+
+  .blog-modal-footer > div {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .blog-modal-footer button:not(.button) {
+    @apply inline-flex items-center gap-1 rounded border border-slate-600 px-3 py-1.5 text-xs text-text-muted transition-colors hover:border-emerald hover:text-emerald;
+  }
 }
 
 button:focus-visible,
@@ -122,4 +368,48 @@ textarea:focus-visible {
 ::selection {
   background: rgba(16, 185, 129, 0.25);
   color: var(--on-surface);
+}
+
+/* Additional utilities from bin/ HTML */
+.glass-panel {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 41, 59, 0.8);
+}
+.glass-panel:hover {
+  box-shadow: 0 0 40px rgba(16, 185, 129, 0.06);
+}
+.glass-card:hover {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+  border-color: rgba(78, 222, 163, 0.3);
+}
+.syntax-keyword {
+  color: #4edea3;
+  font-weight: 600;
+}
+.syntax-string {
+  color: #aeb9d0;
+}
+.syntax-comment {
+  color: #5f748d;
+  font-style: italic;
+}
+
+/* scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #010f1f;
+}
+::-webkit-scrollbar-thumb {
+  background: #273647;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4edea3;
+}
+
+.terminal-shadow {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
