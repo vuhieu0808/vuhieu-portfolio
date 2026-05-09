@@ -107,12 +107,20 @@ export type Milestone = {
   align?: "left" | "right";
 };
 
+export type Certification = {
+  name: string;
+  issuer: string;
+  date: string;
+  url: string;
+};
+
 export const navItems: NavItem[] = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   // { label: "Blog", href: "#blog" },
   { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -564,11 +572,14 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export const skills: Skill[] = [
-  { tag: "programming language", label: ["C/C++", "Python", "JS/TS", "HTML/CSS"] },
+  {
+    tag: "programming language",
+    label: ["C/C++", "Python", "JS/TS", "HTML/CSS"],
+  },
   { tag: "storage", label: ["PostgreSQL", "MongoDB", "Firebase"] },
   { tag: "framework", label: ["Node.js", "React", "Tailwind CSS"] },
   { tag: "settings", label: ["Linux/WSL", "Git", "VSCode"] },
-  { tag: "tools", label: ["Postman", "Burp Suite"] }
+  { tag: "tools", label: ["Postman", "Burp Suite"] },
 ];
 
 export const milestones: Milestone[] = [
@@ -597,5 +608,32 @@ export const milestones: Milestone[] = [
       "First Prize -  City-level Excellent Student Competition in Informatics.",
       "Silver Medal - April 30th Olympic Traditional Competition in Informatics.",
     ],
+  },
+];
+
+export const certifications: Certification[] = [
+  {
+    name: "Advanced Systems Design",
+    issuer: "Linux Foundation",
+    date: "2024",
+    url: "https://www.credly.com/badges",
+  },
+  {
+    name: "Kubernetes Application Developer",
+    issuer: "CNCF",
+    date: "2024",
+    url: "https://www.credly.com/badges",
+  },
+  {
+    name: "AWS Certified Solutions Architect",
+    issuer: "Amazon Web Services",
+    date: "2023",
+    url: "https://www.credly.com/badges",
+  },
+  {
+    name: "Security+ Certified",
+    issuer: "CompTIA",
+    date: "2023",
+    url: "https://www.credly.com/badges",
   },
 ];

@@ -6,6 +6,7 @@ import { IntroSection } from "./components/IntroSection";
 import { BlogSection } from "./components/BlogSection";
 import { ProjectSection } from "./components/ProjectSection";
 import { SkillSection } from "./components/SkillSection";
+import { CertificationSection } from "./components/CertificationSection";
 import { navItems } from "./data/portfolio";
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         {/* <BlogSection /> */}
         <SkillSection />
         <ExperienceSection />
+        <CertificationSection />
         <ContactSection />
       </main>
 
@@ -44,7 +46,8 @@ function App() {
         <div className="container footer-inner">
           <div className="footer-brand">PORTFOLIO</div>
           <div className="footer-copy">
-            Built by <span className="footer-brand">vuhieu</span> - &copy; 2024. All rights reserved.
+            Built by <span className="footer-brand">vuhieu</span> - &copy; 2024.
+            All rights reserved.
           </div>
           <div className="footer-links">
             <a href="#projects">Source</a>
