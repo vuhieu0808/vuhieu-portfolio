@@ -3,6 +3,30 @@
   overflow: clip;
 }
 
+/* Global scrollbar styling for entire webpage */
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(39, 54, 71, 0.6);
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgba(39, 54, 71, 0.8);
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(39, 54, 71, 0.6) transparent;
+}
+
 .app-shell::before,
 .app-shell::after {
   content: "";
@@ -340,6 +364,111 @@ h4 {
   box-shadow:
     0 0 40px rgba(78, 222, 163, 0.4),
     inset 0 0 20px rgba(78, 222, 163, 0.2);
+}
+
+/* Certifications section styles */
+.certifications-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cert-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 0.5rem;
+  transition:
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+  min-height: 80px;
+  width: 100%;
+}
+
+.cert-item:hover {
+  box-shadow: 0 12px 30px rgba(16, 185, 129, 0.08);
+  border-color: rgba(78, 222, 163, 0.9);
+}
+
+.cert-item-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cert-name {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--on-surface);
+}
+
+.cert-issuer {
+  font-size: 0.9rem;
+  color: var(--primary);
+  display: block;
+}
+
+.cert-item-right {
+  margin-left: 1.5rem;
+  text-align: center;
+  width: 80px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.cert-date {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+}
+
+/* Skill tag hover effect for in-page skill chips */
+.skill-label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  overflow: hidden;
+  flex-wrap: nowrap;
+}
+
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--primary);
+  transition:
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+  white-space: nowrap;
+}
+
+.skill-tag:hover {
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.08);
+  border-color: rgba(78, 222, 163, 0.9);
+  background-color: rgba(78, 222, 163, 0.04);
 }
 
 /* Animation cho bóng mờ "thở" nhẹ nhàng */
@@ -754,6 +883,19 @@ h4 {
   display: grid;
   max-height: min(92vh, 921px);
   overflow-y: auto;
+}
+
+.project-modal-layout::-webkit-scrollbar {
+  width: 8px;
+}
+
+.project-modal-layout::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.project-modal-layout::-webkit-scrollbar-thumb {
+  background: rgba(39, 54, 71, 0.6);
+  border-radius: 10px;
 }
 
 .project-modal-hero {
@@ -1280,20 +1422,13 @@ h4 {
   border-block: 1px solid rgba(60, 74, 66, 0.42);
 }
 
-.skills-layout {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 2rem;
-  align-items: start;
-}
-
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
-.skill-item {
+.skill-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1308,17 +1443,36 @@ h4 {
     box-shadow 200ms ease;
 }
 
-.skill-item:hover {
+.skill-card:hover {
   border-color: rgba(78, 222, 163, 0.35);
   background: rgba(30, 41, 59, 0.65);
   transform: translateY(-3px);
   box-shadow: 0 12px 32px rgba(78, 222, 163, 0.12);
 }
 
-.skill-item .material-symbols-outlined {
+.skill-card-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+
+.skill-card-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: white;
+}
+
+.skill-card-meta {
   color: var(--primary);
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .skill-label {
@@ -1342,9 +1496,117 @@ h4 {
   transition: all 150ms ease;
 }
 
-.skill-item:hover .skill-tag {
+.skill-card:hover .skill-tag {
   background: rgba(78, 222, 163, 0.15);
   border-color: rgba(78, 222, 163, 0.4);
+}
+
+.skills-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.skills-expand-button {
+  min-width: 14rem;
+}
+
+.skills-modal-panel {
+  max-width: 58rem;
+}
+
+.skills-modal {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.skills-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-right: 2.5rem;
+}
+
+.skills-modal-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.skills-modal-heading .material-symbols-outlined {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0.15rem;
+}
+
+.skills-modal-heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.skills-modal-heading p {
+  margin-top: 0.35rem;
+  color: var(--on-surface-variant);
+}
+
+.skills-modal-meta {
+  color: var(--primary);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.skills-modal-content {
+  display: grid;
+  gap: 1.25rem;
+  max-height: min(60vh, 42rem);
+  overflow: auto;
+  padding-right: 0.25rem;
+}
+
+.skills-modal-group {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(78, 222, 163, 0.14);
+  background: rgba(30, 41, 59, 0.38);
+}
+
+.skills-modal-group h3 {
+  margin: 0;
+  color: var(--primary);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.skills-modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+.skills-modal-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(78, 222, 163, 0.22);
+  background: rgba(16, 185, 129, 0.08);
+  color: var(--primary);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
 }
 
 .timeline {
@@ -1678,11 +1940,15 @@ h4 {
     position: sticky;
   }
 
+  .skills-modal-header {
+    flex-direction: column;
+    padding-right: 0;
+  }
+
   .header-inner,
   .section-header,
   .footer-inner,
   .hero-section,
-  .skills-layout,
   .timeline-row,
   .form-grid,
   .three-up {

@@ -1,35 +1,70 @@
+import { useState } from "react";
+
 import { skills } from "../data/portfolio";
+import { DetailModal } from "./DetailModal";
+import { SectionHeader } from "./SectionHeader";
+import { SkillModalContent } from "./SkillModalContent";
+
+function formatSkillGroupTitle(title: string) {
+  return title
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
 
 export function SkillSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section className="skills-band section-block" id="skills">
-      <div className="container grid-12 skills-layout">
-        <div className="span-4">
-          <h2>Technical Skills</h2>
-          <p className="lead compact">
-            Quantifiable mastery of core backend technologies and architectural
-            patterns. I focus on low-level performance and high-level
-            scalability.
-          </p>
-        </div>
+      <div className="container">
+        <SectionHeader
+          title="Skills"
+          description="Technical stack."
+          meta={`Count: ${skills.length}`}
+        />
 
-        <div className="span-8 skills-grid">
-          {skills.map((skill, index) => (
-            <div key={index} className="skill-item glass-card">
-              <span className="material-symbols-outlined" aria-hidden="true">
-                {skill.tag}
-              </span>
+        <div className="skills-grid">
+          {skills.slice(0, 4).map((skill) => (
+            <article key={skill.tag} className="skill-card glass-card">
+              <div className="skill-card-header">
+                <h3>{formatSkillGroupTitle(skill.tag)}</h3>
+                <span className="skill-card-meta">
+                  {skill.label.length} items
+                </span>
+              </div>
+
               <div className="skill-label">
-                {skill.label.map((tech, i) => (
-                  <span key={i} className="skill-tag">
+                {skill.label.map((tech) => (
+                  <span key={tech} className="skill-tag">
                     {tech}
                   </span>
                 ))}
               </div>
-            </div>
+            </article>
           ))}
         </div>
+
+        <div className="skills-actions">
+          <button
+            type="button"
+            className="button button-outline skills-expand-button"
+            onClick={() => setIsModalOpen(true)}
+          >
+            Expand skills
+          </button>
+        </div>
       </div>
+
+      <DetailModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        panelClassName="skills-modal-panel"
+      >
+        <div style={{ height: "80vh", minHeight: 360 }}>
+          <SkillModalContent />
+        </div>
+      </DetailModal>
     </section>
   );
 }

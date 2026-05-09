@@ -3,7 +3,6 @@ import "./App.css";
 import { ContactSection } from "./components/ContactSection";
 import { ExperienceSection } from "./components/ExperienceSection";
 import { IntroSection } from "./components/IntroSection";
-import { BlogSection } from "./components/BlogSection";
 import { ProjectSection } from "./components/ProjectSection";
 import { SkillSection } from "./components/SkillSection";
 import { CertificationSection } from "./components/CertificationSection";
