@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { certifications } from "../data/portfolio";
+import { certifications } from "../core/data/portfolio";
 import { SectionHeader } from "./SectionHeader";
 import { DetailModal } from "./DetailModal";
 import { CertificationModalContent } from "./CertificationModalContent";

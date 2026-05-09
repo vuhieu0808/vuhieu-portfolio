@@ -254,8 +254,7 @@ h1 {
   letter-spacing: -0.05em;
 }
 
-h1 span,
-.contact-content h2 span {
+h1 span {
   color: var(--primary);
 }
 
@@ -743,8 +742,7 @@ h4 {
 .project-body p,
 .blog-card p,
 .timeline-copy p,
-.timeline-highlight p,
-.contact-content .lead {
+.timeline-highlight p {
   color: var(--on-surface-variant);
   line-height: 1.7;
 }
@@ -1799,94 +1797,6 @@ h4 {
 
 /* ======= END CERTIFICATIONS ======= */
 
-.contact-card {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  padding: 3rem;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-
-.contact-mark {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  opacity: 0.12;
-}
-
-.contact-mark .material-symbols-outlined {
-  font-size: 7rem;
-}
-
-.contact-content {
-  position: relative;
-  z-index: 1;
-  max-width: 42rem;
-  display: grid;
-  gap: 1.25rem;
-}
-
-.contact-form {
-  display: grid;
-  gap: 1.25rem;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.contact-form label {
-  display: grid;
-  gap: 0.5rem;
-}
-
-.contact-form label span {
-  color: var(--primary);
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 0.875rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid rgba(60, 74, 66, 0.85);
-  border-radius: var(--radius-sm);
-  background: rgba(1, 15, 31, 0.92);
-  color: var(--on-surface);
-  padding: 1rem;
-  font: inherit;
-  transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
-}
-
-.contact-form textarea {
-  resize: vertical;
-  min-height: 9rem;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: rgba(187, 202, 191, 0.58);
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: rgba(78, 222, 163, 0.75);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
-}
-
-.submit-button {
-  width: fit-content;
-}
 
 .site-footer {
   padding: 2rem 0 3rem;
@@ -2033,10 +1943,6 @@ h4 {
   .hero-section,
   .section-block {
     padding-block: 3.5rem;
-  }
-
-  .contact-card {
-    padding: 1.5rem;
   }
 
   .section-divider,

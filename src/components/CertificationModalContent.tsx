@@ -1,6 +1,6 @@
 import React from "react";
-import { certifications } from "../data/portfolio";
-import "../styles/skill-modal.css";
+import { certifications } from "../core/data/portfolio";
+import "../common/styles/skill-modal.css";
 
 type Props = {
   onClose?: () => void;

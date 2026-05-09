@@ -1,6 +1,5 @@
-import React from "react";
-import { skills } from "../data/portfolio";
-import "../styles/skill-modal.css";
+import { skills } from "../core/data/portfolio";
+import "../common/styles/skill-modal.css";
 
 function formatSkillGroupTitle(title: string) {
   return title

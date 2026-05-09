@@ -1,4 +1,4 @@
-import { milestones } from "../data/portfolio";
+import { milestones } from "../core/data/portfolio";
 import { SectionHeader } from "./SectionHeader";
 
 export function ExperienceSection() {

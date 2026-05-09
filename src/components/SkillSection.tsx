@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { skills } from "../data/portfolio";
+import { skills } from "../core/data/portfolio";
 import { DetailModal } from "./DetailModal";
 import { SectionHeader } from "./SectionHeader";
 import { SkillModalContent } from "./SkillModalContent";

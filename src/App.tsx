@@ -1,4 +1,4 @@
-import "./App.css";
+import "./common/styles/App.css";
 
 import { ContactSection } from "./components/ContactSection";
 import { ExperienceSection } from "./components/ExperienceSection";
@@ -6,7 +6,7 @@ import { IntroSection } from "./components/IntroSection";
 import { ProjectSection } from "./components/ProjectSection";
 import { SkillSection } from "./components/SkillSection";
 import { CertificationSection } from "./components/CertificationSection";
-import { navItems } from "./data/portfolio";
+import { navItems } from "./core/data/portfolio";
 
 function App() {
   return (
@@ -45,8 +45,8 @@ function App() {
         <div className="container footer-inner">
           <div className="footer-brand">PORTFOLIO</div>
           <div className="footer-copy">
-            Built by <span className="footer-brand">vuhieu</span> - &copy; 2024.
-            All rights reserved.
+            &copy; 2024 <span className="footer-brand">vuhieu</span>. All rights
+            reserved.
           </div>
           <div className="footer-links">
             <a href="#projects">Source</a>

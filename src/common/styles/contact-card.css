@@ -1,0 +1,76 @@
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 180ms ease,
+    color 180ms ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+}
+
+.contact-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(30, 41, 59, 0.7);
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 16px 40px rgba(1, 15, 31, 0.35);
+  color: var(--on-surface-variant);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.contact-card:hover .contact-card-icon {
+  border-color: rgba(78, 222, 163, 0.5);
+  background: rgba(78, 222, 163, 0.05);
+  color: var(--primary);
+}
+
+.contact-card-icon .material-symbols-outlined {
+  font-size: 1.875rem;
+}
+
+.contact-card-label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  transition: color 180ms ease;
+}
+
+.contact-card:hover .contact-card-label {
+  color: var(--primary);
+}
+
+/* Email card specific styles */
+.contact-card-email-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.contact-card-email {
+  font-family: "Courier New", monospace;
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+  transition: color 180ms ease;
+}
+
+.contact-card:hover .contact-card-email {
+  color: var(--primary);
+}

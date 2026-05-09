@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { projects, type Project } from "../data/portfolio";
+import { projects, type Project } from "../core/data/portfolio";
 import { DetailModal } from "./DetailModal";
 import { SectionHeader } from "./SectionHeader";
 
@@ -229,16 +229,20 @@ export function ProjectSection() {
               <span>{detail.footerLabel}</span>
               <div>
                 {detail.footerButtons.map((btn) => (
-                  <button key={btn.label} type="button" onClick={() => {
-                    window.location.href = btn.link;
-                    if (btn.link.startsWith("#")) {
-                      const targetElement = document.querySelector(btn.link);
-                      if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: "smooth" });
-                        setSelectedProject(null);
+                  <button
+                    key={btn.label}
+                    type="button"
+                    onClick={() => {
+                      window.location.href = btn.link;
+                      if (btn.link.startsWith("#")) {
+                        const targetElement = document.querySelector(btn.link);
+                        if (targetElement) {
+                          targetElement.scrollIntoView({ behavior: "smooth" });
+                          setSelectedProject(null);
+                        }
                       }
-                    }
-                  }}>
+                    }}
+                  >
                     {btn.label}
                   </button>
                 ))}
