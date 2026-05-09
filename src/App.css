@@ -193,6 +193,7 @@
 }
 
 .eyebrow,
+.intro-location,
 .section-meta,
 .timeline-period,
 .card-date,
@@ -358,6 +359,17 @@ h4 {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.intro-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* background: rgba(16, 185, 129, 0.05); */
+  color: var(--primary);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  margin-top: -1rem;
 }
 
 .social-wrapper {

@@ -13,7 +13,7 @@ function App() {
     <div className="app-shell">
       <header className="site-header">
         <div className="container header-inner">
-          <a className="brand" href="#top" aria-label="PORTFOLIO home">
+          <a className="brand" href="#about" aria-label="PORTFOLIO home">
             PORTFOLIO
           </a>
 
@@ -31,7 +31,7 @@ function App() {
         </div>
       </header>
 
-      <main id="top" className="page-content">
+      <main id="about" className="page-content">
         <IntroSection />
         <ProjectSection />
         {/* <BlogSection /> */}

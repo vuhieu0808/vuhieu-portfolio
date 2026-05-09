@@ -3,7 +3,7 @@ export function ContactSection() {
     <section className="container section-block" id="contact">
       <div className="contact-card glass-card">
         <div className="contact-mark" aria-hidden="true">
-          <span className="material-symbols-outlined">terminal</span>
+          <span className="material-symbols-outlined">Contact</span>
         </div>
         <div className="contact-content">
           <h2>

@@ -94,7 +94,7 @@ export type BlogDetail = {
 };
 
 export type Skill = {
-  icon: string;
+  tag: string;
   label: string[];
 };
 
@@ -108,6 +108,7 @@ export type Milestone = {
 };
 
 export const navItems: NavItem[] = [
+  { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   // { label: "Blog", href: "#blog" },
   { label: "Skills", href: "#skills" },
@@ -563,11 +564,11 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export const skills: Skill[] = [
-  { icon: "terminal", label: ["C/C++", "Python", "JS/TS"] },
-  { icon: "storage", label: ["PostgreSQL", "MongoDB", "Firebase"] },
-  { icon: "settings", label: ["Linux/WSL", "Git", "VSCode"] },
-  { icon: "code", label: ["Node.js", "System Design"] },
-  { icon: "tools", label: ["Postman", "Burp Suite"] }
+  { tag: "programming language", label: ["C/C++", "Python", "JS/TS", "HTML/CSS"] },
+  { tag: "storage", label: ["PostgreSQL", "MongoDB", "Firebase"] },
+  { tag: "framework", label: ["Node.js", "React", "Tailwind CSS"] },
+  { tag: "settings", label: ["Linux/WSL", "Git", "VSCode"] },
+  { tag: "tools", label: ["Postman", "Burp Suite"] }
 ];
 
 export const milestones: Milestone[] = [

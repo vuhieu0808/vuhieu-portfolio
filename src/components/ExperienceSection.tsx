@@ -1,9 +1,15 @@
 import { milestones } from "../data/portfolio";
+import { SectionHeader } from "./SectionHeader";
 
 export function ExperienceSection() {
   return (
     <section className="container section-block" id="experience">
-      <h2 className="section-title centered">Structural Milestones</h2>
+      {/* <h2 className="section-title centered">Structural Milestones</h2> */}
+      <SectionHeader
+        title="Structural Milestones"
+        description="Key achievements and experiences throughout my career."
+        meta={`Index: ${milestones.length}`}
+      />
 
       <div className="timeline">
         {milestones.map((milestone) => {

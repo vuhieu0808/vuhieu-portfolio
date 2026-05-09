@@ -17,7 +17,7 @@ export function SkillSection() {
           {skills.map((skill, index) => (
             <div key={index} className="skill-item glass-card">
               <span className="material-symbols-outlined" aria-hidden="true">
-                {skill.icon}
+                {skill.tag}
               </span>
               <div className="skill-label">
                 {skill.label.map((tech, i) => (
