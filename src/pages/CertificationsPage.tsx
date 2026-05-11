@@ -1,21 +1,30 @@
+import { useNavigate } from "react-router-dom";
 import { certifications } from "../core/data/portfolio";
 import "../common/styles/skill-modal.css";
 
-export function CertificationModalContent() {
+export function CertificationsPage() {
+  const navigate = useNavigate();
+
   return (
-    <div className="skills-modal">
-      <div className="skills-modal-header">
-        <div className="skills-modal-heading">
-          <span className="material-symbols-outlined" aria-hidden>
-            verified
-          </span>
-          <div>
-            <h2>Certifications</h2>
-          </div>
+    <section className="container section-block" id="certifications">
+      <div className="section-header" style={{ marginBottom: "3rem" }}>
+        <div>
+          <h2>All Certifications</h2>
+          <p>Professional certifications and credentials.</p>
         </div>
+        <button
+          className="button button-outline"
+          onClick={() => navigate("/")}
+          style={{ whiteSpace: "nowrap" }}
+        >
+          ← Back Home
+        </button>
       </div>
 
-      <div className="skills-modal-content custom-scrollbar">
+      <div
+        className="skills-modal-content custom-scrollbar"
+        style={{ maxHeight: "none" }}
+      >
         <div className="certification-modal-grid">
           {certifications.map((cert, idx) => (
             <a
@@ -36,8 +45,6 @@ export function CertificationModalContent() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
-
-export default CertificationModalContent;

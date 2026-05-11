@@ -8,9 +8,9 @@
 }
 
 .glass-panel {
-  background: rgba(30, 41, 59, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid #1e293b;
+  background: var(--color-white);
+  backdrop-filter: none;
+  border: 1px solid var(--color-black);
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -20,7 +20,7 @@
   background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(39, 54, 71, 0.6);
+  background: var(--color-black);
   border-radius: 10px;
 }
 
@@ -35,7 +35,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--color-black);
 }
 
 .skills-modal-heading {
@@ -57,42 +57,44 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  background: var(--color-black);
 }
 
 .skills-modal-group h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #ffffff;
+  letter-spacing: 0.02em;
+  color: var(--color-white);
 }
 
 .skills-modal-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .skills-modal-tag {
-  padding: 0.375rem 0.75rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 0.75rem 1.5rem;
+  background: var(--color-gray);
+  border: 2px solid var(--color-gray);
   border-radius: 6px;
-  color: var(--primary, #4edea3);
-  font-family: inherit;
-}
-
-.skills-modal-tag {
+  color: var(--color-white);
+  font-family: var(--font-family-primary);
+  font-weight: 700;
+  font-size: 1.10rem;
   transition:
     box-shadow 160ms ease,
     border-color 160ms ease,
     background-color 160ms ease;
 }
-.skills-modal-tag:hover {
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.08);
-  border-color: rgba(78, 222, 163, 0.9);
-  background-color: rgba(78, 222, 163, 0.04);
-}
+/* .skills-modal-tag:hover {
+  box-shadow: none;
+  border-color: var(--color-black);
+  background-color: var(--color-black);
+  color: var(--color-white);
+} */
 
 /* .skills-modal-footer {
   padding: 0;
@@ -101,6 +103,13 @@
 } */
 
 .skills-modal-meta {
+  color: var(--primary);
+  font-family: var(--font-family-heading);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
   opacity: 0.8;
 }
 
@@ -122,13 +131,15 @@
   transition:
     box-shadow 160ms ease,
     border-color 160ms ease;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-black);
+  background: var(--color-white);
 }
 
 .cert-modal-item:hover {
-  box-shadow: 0 14px 36px rgba(16, 185, 129, 0.08);
-  border-color: rgba(78, 222, 163, 0.95);
+  box-shadow: none;
+  border-color: var(--color-black);
+  background: var(--color-black);
+  color: var(--color-white);
 }
 
 .cert-modal-left {
@@ -142,12 +153,12 @@
   font-weight: 600;
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
-  color: var(--on-surface);
+  color: var(--color-black);
 }
 
 .cert-modal-left .cert-issuer {
   font-size: 0.9rem;
-  color: var(--primary);
+  color: var(--color-black);
 }
 
 .cert-modal-right {
@@ -163,5 +174,5 @@
 .cert-modal-right .cert-date {
   font-weight: 500;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-black);
 }

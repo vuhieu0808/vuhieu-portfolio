@@ -1,11 +1,9 @@
-import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { certifications } from "../core/data/portfolio";
 import { SectionHeader } from "./SectionHeader";
-import { DetailModal } from "./DetailModal";
-import { CertificationModalContent } from "./CertificationModalContent";
 
 export function CertificationSection() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
   return (
     <section className="certifications-band section-block" id="certifications">
       <div className="container">
@@ -28,9 +26,6 @@ export function CertificationSection() {
                 <h1 className="cert-name">{cert.name}</h1>
                 <div className="cert-issuer">{cert.issuer}</div>
               </div>
-              {/* <div className="cert-item-right">
-                <div className="cert-date">{cert.date}</div>
-              </div> */}
             </a>
           ))}
         </div>
@@ -38,21 +33,12 @@ export function CertificationSection() {
           <button
             type="button"
             className="button button-outline"
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => navigate('/certifications')}
           >
             Expand certifications
           </button>
         </div>
       </div>
-      <DetailModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        panelClassName="skills-modal-panel"
-      >
-        <div style={{ height: "70vh", minHeight: 320 }}>
-          <CertificationModalContent onClose={() => setIsModalOpen(false)} />
-        </div>
-      </DetailModal>
     </section>
   );
 }

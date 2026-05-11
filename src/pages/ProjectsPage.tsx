@@ -1,21 +1,32 @@
 import { useNavigate } from "react-router-dom";
 import { projects } from "../core/data/portfolio";
-import { SectionHeader } from "./SectionHeader";
 
-export function ProjectSection() {
+export function ProjectsPage() {
   const navigate = useNavigate();
 
   return (
     <section className="container section-block" id="projects">
-      <SectionHeader
-        title="Projects"
-        description="Personal projects and Academic Projects."
-        meta={`Index: ${projects.length}`}
-      />
+      <div className="section-header" style={{ marginBottom: "3rem" }}>
+        <div>
+          <h2>All Projects</h2>
+          <p>Personal projects and Academic Projects.</p>
+        </div>
+        <button
+          className="button button-outline"
+          onClick={() => navigate("/")}
+          style={{ whiteSpace: "nowrap" }}
+        >
+          ← Back Home
+        </button>
+      </div>
 
       <div className="card-grid three-up">
-        {projects.slice(0, 3).map((project) => (
-          <article key={project.title} className="project-card glass-card">
+        {projects.map((project) => (
+          <article
+            key={project.title}
+            className="project-card glass-card"
+            style={{ cursor: "default" }}
+          >
             <div className="project-image-wrap">
               <img src={project.image} alt={project.alt} loading="lazy" />
               <div className="project-image-overlay" />
@@ -33,17 +44,6 @@ export function ProjectSection() {
             </div>
           </article>
         ))}
-      </div>
-
-      <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}
-      >
-        <button
-          className="button button-primary"
-          onClick={() => navigate("/projects")}
-        >
-          View All Projects
-        </button>
       </div>
     </section>
   );

@@ -1,9 +1,7 @@
-import { useState } from "react";
-
 import { skills } from "../core/data/portfolio";
-import { DetailModal } from "./DetailModal";
 import { SectionHeader } from "./SectionHeader";
-import { SkillModalContent } from "./SkillModalContent";
+
+import { useNavigate } from "react-router-dom";
 
 function formatSkillGroupTitle(title: string) {
   return title
@@ -13,8 +11,7 @@ function formatSkillGroupTitle(title: string) {
 }
 
 export function SkillSection() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <section className="skills-band section-block" id="skills">
       <div className="container">
@@ -49,22 +46,12 @@ export function SkillSection() {
           <button
             type="button"
             className="button button-outline skills-expand-button"
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => navigate("/skills")}
           >
             Expand skills
           </button>
         </div>
       </div>
-
-      <DetailModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        panelClassName="skills-modal-panel"
-      >
-        <div style={{ height: "80vh", minHeight: 360 }}>
-          <SkillModalContent />
-        </div>
-      </DetailModal>
     </section>
   );
 }
