@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import { blogPosts, type BlogPost } from "../core/data/portfolio";
+import { blogPosts } from "../core/data/portfolio";
+import type { BlogPost } from "../core/types/portfolio-types";
 import { DetailModal } from "./DetailModal";
 import { SectionHeader } from "./SectionHeader";
 

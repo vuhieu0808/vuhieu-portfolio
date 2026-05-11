@@ -55,22 +55,23 @@ export type ProjectLesson = {
 };
 
 export type ProjectDetail = {
-  heroTitle: string;
+  heroTitle: string; // title
+  projectType: string; // personal project, academic project
+  roleSection: ProjectRole; // role and contributions
   summarySection: ProjectDetailSection & {
     description: string;
   };
   architectureSection: ProjectDetailSection & {
     description: string;
   };
-  challengesSection: ProjectDetailSection;
   architectureNote: string;
+  challengesSection: ProjectDetailSection;
   challenges: ProjectDetailChallenge[];
-  roleSection: ProjectRole;
   lessonsSection: ProjectLesson;
   coreStackTitle: string;
   vitalsTitle: string;
   metrics: ProjectDetailMetric[];
-  actionButtons: string[];
+  actionButtons: { label: string; link: string }[];
   footerLabel: string;
   footerButtons: { label: string; link: string }[];
 };

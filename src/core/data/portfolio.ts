@@ -1,20 +1,28 @@
-import type { NavItem, Project, BlogPost, Skill, Milestone, Certification, ContactInfo } from "../types/portfolio-types";
+import type {
+  NavItem,
+  Project,
+  BlogPost,
+  Skill,
+  Milestone,
+  Certification,
+  ContactInfo,
+} from "../types/portfolio-types";
 
 export const contactInfo: ContactInfo = {
   email: {
     icon: "email",
     label: "Email",
-    href: "mailto:minhhieuvutran046@gmail.com"
+    href: "mailto:minhhieuvutran046@gmail.com",
   },
   linkedinUrl: {
     icon: "linkedin",
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/vuhieu886/"
+    href: "https://www.linkedin.com/in/vuhieu886/",
   },
   githubUrl: {
     icon: "github",
     label: "GitHub",
-    href: "https://github.com/vuhieu0808"
+    href: "https://github.com/vuhieu0808",
   },
   facebookUrl: {
     icon: "facebook",
@@ -35,84 +43,159 @@ export const navItems: NavItem[] = [
 
 export const projects: Project[] = [
   {
-    title: "Distributed Task Queue",
+    title: "The Right Type",
     description:
-      "High-performance asynchronous task processing system capable of handling 10k+ jobs/sec with exactly-once delivery guarantees.",
-    tags: ["PYTHON", "REDIS", "DOCKER"],
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAMy6JRXO7ZZ2q7EXYS7J5zEKeno_0WC1wMlHZk3DT46pG8JbbcTt6tYiZH1HrjgoZTEv9QbYhgmIoKZArsR5SAzWXQAD2IK5-4qa9kk6aZabHVwfO5U9OhCam1o88EMH5EWpdw4Efi1Kf6SrZcTYZ-lPUSr43KayIMSqJk024O0YfILqD4m9ftBtJf0Cs7rh8pwk5gaHqXeGhKUAmwN55JGB5P63y9dqx5cIKzU8otoHLRJ8q5XfUVNXtUSSDMm1scej1-4HMcgtM",
-    alt: "Server rack with emerald indicators in a dark data center",
+      "Backend-focused work-date platform combining intelligent user matching, real-time messaging, and AI-assisted conversation support through a scalable client-server architecture.",
+    tags: [
+      "NODEJS",
+      "EXPRESS",
+      "SOCKET.IO",
+      "FIREBASE",
+      "FIRESTORE",
+      "JWT",
+      "REACT",
+      "GEMINI",
+    ],
+    image: "YOUR_IMAGE_URL",
+    alt: "Real-time work-oriented social platform with intelligent matching and messaging",
     detail: {
-      heroTitle: "Project: Distributed Task Queue",
-      summarySection: {
-        title: "TECHNICAL_SUMMARY",
-        icon: "description",
-        description:
-          "A fault-tolerant queue platform designed for high-throughput background workloads with strict delivery guarantees.",
-      },
-      architectureSection: {
-        title: "SYSTEM_ARCHITECTURE",
-        icon: "account_tree",
-        description:
-          "[INTERACTIVE_SCHEMA: services topology, message broker, and cache layer]",
-      },
-      challengesSection: {
-        title: "CHALLENGES_&_RESOLUTIONS",
-        icon: "bolt",
-      },
-      architectureNote:
-        "Sharded queue partitions with adaptive worker balancing based on queue lag.",
-      challenges: [
-        {
-          title: "CHALLENGE_01",
-          description:
-            "Sharded queue partitions with adaptive worker balancing based on queue lag.",
-          solution:
-            "Sustained 10k+ jobs/sec during peak reconciliation windows.",
-        },
-        {
-          title: "CHALLENGE_02",
-          description:
-            "Idempotency keys and outbox pattern to guarantee exactly-once processing semantics.",
-          solution:
-            "Reduced failed-job recovery time from 40 minutes to under 8 minutes.",
-        },
-        {
-          title: "CHALLENGE_03",
-          description:
-            "Pluggable retry and dead-letter workflow with per-job policy overrides.",
-          solution:
-            "Dropped duplicate execution incidents to near-zero in production.",
-        },
-      ],
+      heroTitle: "Project: The Right Type",
+      projectType: "Academic Group Project",
+
       roleSection: {
         title: "MY_ROLE",
         icon: "person",
         description:
-          "Led the design and implementation of the queue platform, establishing idempotency patterns and failure recovery strategies for mission-critical workloads at scale.",
+          "Primarily responsible for backend engineering, including REST API development, real-time communication infrastructure, Firebase integration, authentication middleware, intelligent matching services, AI-assisted messaging pipeline integration, and cloud-based image handling workflows.",
       },
+
+      summarySection: {
+        title: "TECHNICAL_SUMMARY",
+        icon: "description",
+        description:
+          "A work-oriented social platform designed to connect users based on professional compatibility, work style alignment, availability overlap, and conversational engagement. The system integrates intelligent matching algorithms, Socket.IO-powered real-time messaging, Firestore-based chat persistence, AI-generated conversation suggestions, and cloud-backed media synchronization.",
+      },
+
+      architectureSection: {
+        title: "SYSTEM_ARCHITECTURE",
+        icon: "account_tree",
+        description:
+          "[INTERACTIVE_SCHEMA: React client, Express API server, Socket.IO realtime gateway, Firebase Authentication, Firestore chat persistence, Gemini AI pipeline, Google Drive image storage, matching engine, and recommendation services]",
+      },
+
+      architectureNote:
+        "Event-driven backend architecture combining REST APIs with Socket.IO real-time channels, Firestore persistence, and AI-assisted conversational processing.",
+
+      challengesSection: {
+        title: "CHALLENGES_&_RESOLUTIONS",
+        icon: "bolt",
+      },
+
+      challenges: [
+        {
+          title: "CHALLENGE_01",
+          description:
+            "Designed a hybrid real-time messaging system using Socket.IO for low-latency communication while persisting chat history through Firestore synchronization.",
+          solution:
+            "Achieved responsive bidirectional messaging with persistent cross-session conversation recovery and scalable event handling.",
+        },
+
+        {
+          title: "CHALLENGE_02",
+          description:
+            "Implemented a multi-factor compatibility engine combining geographical distance, work-vibe alignment, schedule overlap, occupation similarity, and semantic interest matching.",
+          solution:
+            "Developed a weighted scoring pipeline using Haversine distance, Gaussian decay, Jaccard similarity, and embedding-based cosine similarity for ranked user recommendations.",
+        },
+
+        {
+          title: "CHALLENGE_03",
+          description:
+            "Integrated an AI-assisted conversation suggestion pipeline capable of analyzing conversational context, emotional appraisal, and interaction flow before generating reply recommendations.",
+          solution:
+            "Built a multi-stage ECR-Chain workflow leveraging LLM inference, emotional reasoning, and contextual prompt engineering to generate adaptive conversation suggestions.",
+        },
+
+        {
+          title: "CHALLENGE_04",
+          description:
+            "Managed authentication, protected API access, and cloud-backed media uploads using Firebase services and middleware validation.",
+          solution:
+            "Implemented JWT/Firebase authentication middleware with secure image synchronization workflows through Google Drive integration.",
+        },
+      ],
+
       lessonsSection: {
         title: "LESSONS_LEARNED",
         icon: "lightbulb",
         items: [
-          "Exactly-once semantics require careful coordination between producer state and consumer acknowledgment",
-          "Monitoring backpressure and worker lag is as important as throughput metrics for operational health",
-          "Flexible retry policies must account for transient vs. permanent failure modes",
+          "Combining RESTful APIs with WebSocket-based communication significantly improves responsiveness for interactive social platforms",
+          "Real-world compatibility modeling is substantially more complex than theoretical scoring systems due to human behavioral variability",
+          "Semantic embeddings provide more meaningful similarity matching than traditional keyword-based approaches",
+          "AI-generated conversational assistance requires careful prompt engineering and contextual reasoning to maintain natural interaction quality",
+          "Separating real-time transport from persistence layers improves scalability and maintainability of messaging systems",
         ],
       },
+
       coreStackTitle: "Core_Stack",
+
       vitalsTitle: "Vitals_Dashboard",
+
       metrics: [
-        { label: "THROUGHPUT", value: "98% OPTIMIZED", width: "98%" },
-        { label: "UPTIME", value: "99.999%", width: "99.9%" },
-        { label: "DATA_RELIABILITY", value: "SECURE", width: "85%" },
+        {
+          label: "REALTIME_MESSAGING",
+          value: "SOCKET.IO",
+          width: "92%",
+        },
+
+        {
+          label: "MATCHING_ENGINE",
+          value: "MULTI-FACTOR",
+          width: "88%",
+        },
+
+        {
+          label: "AUTHENTICATION",
+          value: "FIREBASE_SECURED",
+          width: "90%",
+        },
+
+        {
+          label: "AI_PIPELINE",
+          value: "ECR_CHAIN",
+          width: "85%",
+        },
       ],
-      actionButtons: ["Access Source Code", "Technical Docs"],
-      footerLabel: "SYS_ARCH // ARCH_STABLE_V2",
+
+      actionButtons: [
+        {
+          label: "Access Source Code",
+          link: "YOUR_GITHUB_LINK",
+        },
+
+        {
+          label: "Project Report",
+          link: "YOUR_REPORT_LINK",
+        },
+      ],
+
+      footerLabel: "BACKEND_SYS // REALTIME_ARCH_V1",
+
       footerButtons: [
-        { label: "Documentation", link: "#documentation" },
-        { label: "API Reference", link: "#api" },
-        { label: "Contact Engineering", link: "#contact" },
+        // {
+        //   label: "Documentation",
+        //   link: "YOUR_DOC_LINK",
+        // },
+
+        // {
+        //   label: "API Reference",
+        //   link: "YOUR_API_DOC_LINK",
+        // },
+
+        // {
+        //   label: "System Overview",
+        //   link: "YOUR_SYSTEM_LINK",
+        // },
       ],
     },
   },
@@ -126,6 +209,7 @@ export const projects: Project[] = [
     alt: "Neural network style microservices architecture visualization",
     detail: {
       heroTitle: "Project: Service Mesh Orchestrator",
+      projectType: "Personal Project",
       summarySection: {
         title: "TECHNICAL_SUMMARY",
         icon: "description",
@@ -188,7 +272,10 @@ export const projects: Project[] = [
         { label: "UPTIME", value: "99.999%", width: "99.9%" },
         { label: "DATA_RELIABILITY", value: "SECURE", width: "85%" },
       ],
-      actionButtons: ["Access Source Code", "Technical Docs"],
+      actionButtons: [
+        { label: "Access Source Code", link: "#source-code" },
+        { label: "Technical Docs", link: "#technical-docs" },
+      ],
       footerLabel: "SYS_ARCH // ARCH_STABLE_V2",
       footerButtons: [
         { label: "Documentation", link: "#documentation" },
@@ -207,6 +294,7 @@ export const projects: Project[] = [
     alt: "High-contrast 3D abstract data blocks in an obsidian space",
     detail: {
       heroTitle: "Project: Real-time Analytics Engine",
+      projectType: "Personal Project",
       summarySection: {
         title: "TECHNICAL_SUMMARY",
         icon: "description",
@@ -270,7 +358,10 @@ export const projects: Project[] = [
         { label: "UPTIME", value: "99.999%", width: "99.9%" },
         { label: "DATA_RELIABILITY", value: "SECURE", width: "85%" },
       ],
-      actionButtons: ["Access Source Code", "Technical Docs"],
+      actionButtons: [
+        { label: "Access Source Code", link: "#source-code" },
+        { label: "Technical Docs", link: "#technical-docs" },
+      ],
       footerLabel: "SYS_ARCH // ARCH_STABLE_V2",
       footerButtons: [
         { label: "Documentation", link: "#documentation" },
@@ -289,6 +380,7 @@ export const projects: Project[] = [
     alt: "High-contrast 3D abstract data blocks in an obsidian space",
     detail: {
       heroTitle: "Project: Real-time Analytics Engine",
+      projectType: "Personal Project",
       summarySection: {
         title: "TECHNICAL_SUMMARY",
         icon: "description",
@@ -352,7 +444,10 @@ export const projects: Project[] = [
         { label: "UPTIME", value: "99.999%", width: "99.9%" },
         { label: "DATA_RELIABILITY", value: "SECURE", width: "85%" },
       ],
-      actionButtons: ["Access Source Code", "Technical Docs"],
+      actionButtons: [
+        { label: "Access Source Code", link: "#source-code" },
+        { label: "Technical Docs", link: "#technical-docs" },
+      ],
       footerLabel: "SYS_ARCH // ARCH_STABLE_V2",
       footerButtons: [
         { label: "Documentation", link: "#documentation" },
@@ -522,27 +617,15 @@ export const milestones: Milestone[] = [
 
 export const certifications: Certification[] = [
   {
-    name: "Advanced Systems Design",
-    issuer: "Linux Foundation",
+    name: "Foundations of Cybersecurity",
+    issuer: "Google",
     date: "2024",
-    url: "https://www.credly.com/badges",
+    url: "https://www.coursera.org/account/accomplishments/certificate/C1HPXCLBSSA8",
   },
   {
-    name: "Kubernetes Application Developer",
-    issuer: "CNCF",
+    name: "Google AI Essentials",
+    issuer: "Google",
     date: "2024",
-    url: "https://www.credly.com/badges",
-  },
-  {
-    name: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    date: "2023",
-    url: "https://www.credly.com/badges",
-  },
-  {
-    name: "Security+ Certified",
-    issuer: "CompTIA",
-    date: "2023",
-    url: "https://www.credly.com/badges",
+    url: "https://www.coursera.org/account/accomplishments/verify/4HSWZWD8PJQY",
   },
 ];

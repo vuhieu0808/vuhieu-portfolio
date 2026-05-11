@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import { projects, type Project } from "../core/data/portfolio";
+import { projects } from "../core/data/portfolio";
+import type { Project } from "../core/types/portfolio-types";
 import { DetailModal } from "./DetailModal";
 import { SectionHeader } from "./SectionHeader";
 
@@ -74,11 +75,13 @@ export function ProjectSection() {
                   ))}
                 </div>
                 <h2>{detail.heroTitle}</h2>
+                <h3>{detail.projectType}</h3>
               </div>
             </header>
 
             <div className="project-modal-body">
               <div className="project-modal-main">
+                {/* role section */}
                 <section>
                   <h3 className="project-modal-section-title">
                     <span
@@ -91,7 +94,7 @@ export function ProjectSection() {
                   </h3>
                   <p>{detail.roleSection.description}</p>
                 </section>
-
+                {/* summary section */}
                 <section>
                   <h3 className="project-modal-section-title">
                     <span
@@ -104,7 +107,7 @@ export function ProjectSection() {
                   </h3>
                   <p>{detail.summarySection.description}</p>
                 </section>
-
+                {/* architecture section */}
                 <section>
                   <h3 className="project-modal-section-title">
                     <span
@@ -126,6 +129,7 @@ export function ProjectSection() {
                   </div>
                 </section>
 
+                {/* challenges section */}
                 <section>
                   <h3 className="project-modal-section-title">
                     <span
@@ -162,6 +166,7 @@ export function ProjectSection() {
                   </div>
                 </section>
 
+                {/* lessons section */}
                 <section>
                   <h3 className="project-modal-section-title">
                     <span
@@ -180,6 +185,7 @@ export function ProjectSection() {
                 </section>
               </div>
 
+              {/* side panel */}
               <aside className="project-modal-side">
                 <div className="project-modal-side-card">
                   <h4>{detail.coreStackTitle}</h4>
@@ -207,18 +213,18 @@ export function ProjectSection() {
                   </div>
                 </div>
 
+                {/* action buttons */}
                 <div className="project-modal-actions">
-                  {detail.actionButtons.map((label, index) => (
+                  {detail.actionButtons.map((btn, index) => (
                     <button
-                      key={label}
+                      key={btn.label}
                       type="button"
-                      className={
-                        index === 0
-                          ? "button button-primary"
-                          : "button button-outline"
-                      }
+                      className={"button button-primary"}
+                      onClick={() => {
+                        window.location.href = btn.link;
+                      }}
                     >
-                      {label}
+                      {btn.label}
                     </button>
                   ))}
                 </div>
