@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { projects } from "../core/data/portfolio";
 import { SectionHeader } from "./SectionHeader";
+import { ProjectImage } from "../utils/ProjectImage";
 
 export function ProjectSection() {
   const navigate = useNavigate();
@@ -10,16 +11,13 @@ export function ProjectSection() {
       <SectionHeader
         title="Projects"
         description="Personal projects and Academic Projects."
-        meta={`Index: ${projects.length}`}
+        meta={`Count: ${projects.length}`}
       />
 
       <div className="card-grid three-up">
         {projects.slice(0, 3).map((project) => (
           <article key={project.title} className="project-card glass-card">
-            <div className="project-image-wrap">
-              <img src={project.image} alt={project.alt} loading="lazy" />
-              <div className="project-image-overlay" />
-            </div>
+            <ProjectImage src={project.image} alt={project.alt} />
             <div className="project-body">
               <h3 className="project-title">{project.title}</h3>
               <p className="project-description">{project.description}</p>

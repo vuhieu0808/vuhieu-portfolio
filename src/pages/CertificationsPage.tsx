@@ -7,18 +7,28 @@ export function CertificationsPage() {
 
   return (
     <section className="container section-block" id="certifications">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          marginBottom: "1rem",
+        }}
+      >
+        <button
+          className="button button-outline"
+          onClick={() => navigate("/#certifications")}
+          style={{ whiteSpace: "nowrap" }}
+        >
+          ← Back Home
+        </button>
+      </div>
       <div className="section-header" style={{ marginBottom: "3rem" }}>
         <div>
           <h2>All Certifications</h2>
           <p>Professional certifications and credentials.</p>
         </div>
-        <button
-          className="button button-outline"
-          onClick={() => navigate("/")}
-          style={{ whiteSpace: "nowrap" }}
-        >
-          ← Back Home
-        </button>
+        <div className="section-divider" aria-hidden="true" />
+        <span className="section-meta">{`Count: ${certifications.length}`}</span>
       </div>
 
       <div

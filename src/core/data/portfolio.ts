@@ -7,6 +7,7 @@ import type {
   Certification,
   ContactInfo,
 } from "../types/portfolio-types";
+import backgroundProjectImage from "../../common/assets/background-project.webp";
 
 export const contactInfo: ContactInfo = {
   email: {
@@ -56,7 +57,7 @@ export const projects: Project[] = [
       "REACT",
       "GEMINI",
     ],
-    image: "YOUR_IMAGE_URL",
+    image: backgroundProjectImage,
     alt: "Real-time work-oriented social platform with intelligent matching and messaging",
     detail: {
       heroTitle: "Project: The Right Type",
@@ -186,12 +187,10 @@ export const projects: Project[] = [
         //   label: "Documentation",
         //   link: "YOUR_DOC_LINK",
         // },
-
         // {
         //   label: "API Reference",
         //   link: "YOUR_API_DOC_LINK",
         // },
-
         // {
         //   label: "System Overview",
         //   link: "YOUR_SYSTEM_LINK",

@@ -26,7 +26,7 @@ export function MainLayout({ children }: MainLayoutProps) {
           </nav>
 
           <Link className="button button-primary header-button" to="/#contact">
-            Download CV
+            Download Resume
           </Link>
         </div>
       </header>

@@ -26,9 +26,9 @@ export function SkillSection() {
             <article key={skill.tag} className="skill-card glass-card">
               <div className="skill-card-header">
                 <h3>{formatSkillGroupTitle(skill.tag)}</h3>
-                <span className="skill-card-meta">
+                {/* <span className="skill-card-meta">
                   {skill.label.length} items
-                </span>
+                </span> */}
               </div>
 
               <div className="skill-label">

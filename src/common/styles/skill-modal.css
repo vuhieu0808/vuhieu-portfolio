@@ -52,7 +52,8 @@
 }
 
 .skills-modal-content {
-  padding: 1.5rem;
+  padding-block: 1.5rem;
+  padding-inline: 0;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -83,7 +84,7 @@
   color: var(--color-white);
   font-family: var(--font-family-primary);
   font-weight: 700;
-  font-size: 1.10rem;
+  font-size: 1.1rem;
   transition:
     box-shadow 160ms ease,
     border-color 160ms ease,

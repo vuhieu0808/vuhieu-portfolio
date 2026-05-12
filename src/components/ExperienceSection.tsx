@@ -8,17 +8,18 @@ export function ExperienceSection() {
       <SectionHeader
         title="Structural Milestones"
         description="Key achievements and experiences throughout my career."
-        meta={`Index: ${milestones.length}`}
+        meta={`Count: ${milestones.length}`}
       />
 
       <div className="timeline">
-        {milestones.map((milestone) => {
+        {milestones.map((milestone, index) => {
           const isRight = milestone.align === "right";
+          const isCurrent = index === 0;
 
           return (
             <article
               key={milestone.title}
-              className={`timeline-row ${isRight ? "is-right" : ""}`}
+              className={`timeline-row ${isRight ? "is-right" : ""} ${isCurrent ? "is-current" : ""}`}
             >
               <div
                 className={`timeline-copy ${isRight ? "timeline-copy-right" : ""}`}
@@ -30,7 +31,10 @@ export function ExperienceSection() {
                 ))}
               </div>
 
-              <div className="timeline-node" aria-hidden="true">
+              <div
+                className={`timeline-node ${isCurrent ? "timeline-node-current" : ""}`}
+                aria-hidden="true"
+              >
                 <span />
               </div>
 

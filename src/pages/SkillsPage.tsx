@@ -14,18 +14,28 @@ export function SkillsPage() {
 
   return (
     <section className="container section-block" id="skills">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          marginBottom: "1rem",
+        }}
+      >
+        <button
+          className="button button-outline"
+          onClick={() => navigate("/#skills")}
+          style={{ whiteSpace: "nowrap" }}
+        >
+          ← Back Home
+        </button>
+      </div>
       <div className="section-header" style={{ marginBottom: "3rem" }}>
         <div>
           <h2>Technical Stack</h2>
           <p>All skills and technologies.</p>
         </div>
-        <button
-          className="button button-outline"
-          onClick={() => navigate("/")}
-          style={{ whiteSpace: "nowrap" }}
-        >
-          ← Back Home
-        </button>
+        <div className="section-divider" aria-hidden="true" />
+        <span className="section-meta">{`Count: ${skills.length}`}</span>
       </div>
 
       <div

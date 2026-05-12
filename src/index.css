@@ -8,6 +8,12 @@
   --color-gray: #1a1a1a;
   --color-white: #ffffff;
 
+  /* Design system colors - Obsidian Logic */
+  --color-secondary: #1e293b;
+  --color-tertiary: #0f172a;
+  --color-emerald: #10b981;
+  --color-emerald-rgb: 16 185 129;
+
   /* Semantic tokens mapped from base colors */
   --background: var(--color-black);
   --card-surface: var(--color-gray);
