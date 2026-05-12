@@ -51,13 +51,13 @@ export const contactInfo: ContactInfo = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  // { label: "Blog", href: "#blog" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Certifications", href: "#certifications" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Projects", href: "/#projects" },
+  // { label: "Blog", href: "/#blog" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Certifications", href: "/#certifications" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const projects: Project[] = [
@@ -253,18 +253,18 @@ export const projects: Project[] = [
       footerLabel: "BACKEND_SYS // THE_RIGHT_TYPE_V1",
 
       footerButtons: [
-        {
-          label: "Documentation",
-          link: "YOUR_DOC_LINK",
-        },
-        {
-          label: "API Reference",
-          link: "YOUR_API_DOC_LINK",
-        },
-        {
-          label: "System Overview",
-          link: "YOUR_SYSTEM_LINK",
-        },
+        // {
+        //   label: "Documentation",
+        //   link: "YOUR_DOC_LINK",
+        // },
+        // {
+        //   label: "API Reference",
+        //   link: "YOUR_API_DOC_LINK",
+        // },
+        // {
+        //   label: "System Overview",
+        //   link: "YOUR_SYSTEM_LINK",
+        // },
       ],
     },
   },
@@ -683,14 +683,6 @@ export const projects: Project[] = [
         {
           label: "ESCO Reference",
           link: "https://esco.ec.europa.eu/en",
-        },
-        {
-          label: "Documentation",
-          link: "YOUR_DOC_LINK",
-        },
-        {
-          label: "System Overview",
-          link: "YOUR_SYSTEM_LINK",
         },
       ],
     },

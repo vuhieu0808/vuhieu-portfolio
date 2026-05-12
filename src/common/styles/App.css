@@ -936,18 +936,17 @@ h4 {
 
 .project-modal-hero-content {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1.5rem 2rem;
+  inset: 0; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
+  padding: 1.5rem;
 }
 
 .project-detail-hero-back {
-  position: absolute;
-  top: -8.5rem;
-  left: 0.75rem;
-  z-index: 2;
-  width: fit-content;
+  position: static; 
+  margin-bottom: auto; 
+  align-self: flex-start; 
 }
 
 .project-modal-chip-row {
