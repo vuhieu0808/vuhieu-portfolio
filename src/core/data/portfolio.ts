@@ -66,22 +66,25 @@ export const projects: Project[] = [
       roleSection: {
         title: "MY_ROLE",
         icon: "person",
-        description:
+        description: [
           "Primarily responsible for backend engineering, including REST API development, real-time communication infrastructure, Firebase integration, authentication middleware, intelligent matching services, AI-assisted messaging pipeline integration, and cloud-based image handling workflows.",
+        ]
       },
 
       summarySection: {
         title: "TECHNICAL_SUMMARY",
         icon: "description",
-        description:
+        description: [
           "A work-oriented social platform designed to connect users based on professional compatibility, work style alignment, availability overlap, and conversational engagement. The system integrates intelligent matching algorithms, Socket.IO-powered real-time messaging, Firestore-based chat persistence, AI-generated conversation suggestions, and cloud-backed media synchronization.",
+        ]
       },
 
       architectureSection: {
         title: "SYSTEM_ARCHITECTURE",
         icon: "account_tree",
-        description:
+        description: [
           "[INTERACTIVE_SCHEMA: React client, Express API server, Socket.IO realtime gateway, Firebase Authentication, Firestore chat persistence, Gemini AI pipeline, Google Drive image storage, matching engine, and recommendation services]",
+        ],
       },
 
       architectureNote:
@@ -212,14 +215,16 @@ export const projects: Project[] = [
       summarySection: {
         title: "TECHNICAL_SUMMARY",
         icon: "description",
-        description:
+        description: [
           "A lightweight control plane for service-to-service security, observability, and traffic shaping in Kubernetes clusters.",
+        ],
       },
       architectureSection: {
         title: "SYSTEM_ARCHITECTURE",
         icon: "account_tree",
-        description:
+        description: [
           "[INTERACTIVE_SCHEMA: services topology, message broker, and cache layer]",
+        ],
       },
       challengesSection: {
         title: "CHALLENGES_&_RESOLUTIONS",
@@ -252,8 +257,9 @@ export const projects: Project[] = [
       roleSection: {
         title: "MY_ROLE",
         icon: "person",
-        description:
+        description: [
           "Architected and led the control plane implementation, establishing security policies, telemetry collection standards, and progressive delivery workflows for microservices infrastructure.",
+        ],
       },
       lessonsSection: {
         title: "LESSONS_LEARNED",
@@ -297,14 +303,16 @@ export const projects: Project[] = [
       summarySection: {
         title: "TECHNICAL_SUMMARY",
         icon: "description",
-        description:
+        description: [
           "A streaming-first analytics stack built for low-latency dashboards and operational intelligence on event-heavy systems.",
+        ],
       },
       architectureSection: {
         title: "SYSTEM_ARCHITECTURE",
         icon: "account_tree",
-        description:
+        description: [
           "[INTERACTIVE_SCHEMA: services topology, message broker, and cache layer]",
+        ],
       },
       challengesSection: {
         title: "CHALLENGES_&_RESOLUTIONS",
@@ -338,8 +346,9 @@ export const projects: Project[] = [
       roleSection: {
         title: "MY_ROLE",
         icon: "person",
-        description:
+        description: [
           "Designed and optimized the query engine and storage layer, establishing partitioning strategies and incremental indexing to achieve real-time analytics at petabyte scale.",
+        ],
       },
       lessonsSection: {
         title: "LESSONS_LEARNED",
@@ -383,14 +392,16 @@ export const projects: Project[] = [
       summarySection: {
         title: "TECHNICAL_SUMMARY",
         icon: "description",
-        description:
+        description: [
           "A streaming-first analytics stack built for low-latency dashboards and operational intelligence on event-heavy systems.",
+        ],
       },
       architectureSection: {
         title: "SYSTEM_ARCHITECTURE",
         icon: "account_tree",
-        description:
+        description: [
           "[INTERACTIVE_SCHEMA: services topology, message broker, and cache layer]",
+        ],
       },
       challengesSection: {
         title: "CHALLENGES_&_RESOLUTIONS",
@@ -424,8 +435,9 @@ export const projects: Project[] = [
       roleSection: {
         title: "MY_ROLE",
         icon: "person",
-        description:
+        description: [
           "Designed and optimized the query engine and storage layer, establishing partitioning strategies and incremental indexing to achieve real-time analytics at petabyte scale.",
+        ],
       },
       lessonsSection: {
         title: "LESSONS_LEARNED",

@@ -45,7 +45,7 @@ export type ProjectDetailMetric = {
 export type ProjectRole = {
   title: string;
   icon: string;
-  description: string;
+  description: string[];
 };
 
 export type ProjectLesson = {
@@ -59,10 +59,10 @@ export type ProjectDetail = {
   projectType: string; // personal project, academic project
   roleSection: ProjectRole; // role and contributions
   summarySection: ProjectDetailSection & {
-    description: string;
+    description: string[];
   };
   architectureSection: ProjectDetailSection & {
-    description: string;
+    description: string[];
   };
   architectureNote: string;
   challengesSection: ProjectDetailSection;

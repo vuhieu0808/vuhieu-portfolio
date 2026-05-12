@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { MainLayout } from "./layouts/MainLayout";
 import { HomePage } from "./pages/HomePage";
 import { ProjectsPage } from "./pages/ProjectsPage";
+import { ProjectDetailPage } from "./pages/ProjectDetailPage";
 import { SkillsPage } from "./pages/SkillsPage";
 import { CertificationsPage } from "./pages/CertificationsPage";
 import { ScrollToTop } from "./utils/ScrollToTop";
@@ -27,6 +28,14 @@ function App() {
           element={
             <MainLayout>
               <ProjectsPage />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/projects/:projectId"
+          element={
+            <MainLayout>
+              <ProjectDetailPage />
             </MainLayout>
           }
         />

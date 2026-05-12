@@ -32,11 +32,11 @@ export function ProjectsPage() {
       </div>
 
       <div className="card-grid three-up">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <article
             key={project.title}
-            className="project-card glass-card"
-            style={{ cursor: "default" }}
+            className="project-card glass-card interactive-card"
+            onClick={() => navigate(`/projects/${index}`)}
           >
             <ProjectImage src={project.image} alt={project.alt} />
             <div className="project-body">

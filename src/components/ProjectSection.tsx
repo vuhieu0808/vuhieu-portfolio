@@ -15,8 +15,12 @@ export function ProjectSection() {
       />
 
       <div className="card-grid three-up">
-        {projects.slice(0, 3).map((project) => (
-          <article key={project.title} className="project-card glass-card">
+        {projects.slice(0, 3).map((project, index) => (
+          <article
+            key={project.title}
+            className="project-card glass-card interactive-card"
+            onClick={() => navigate(`/projects/${index}`)}
+          >
             <ProjectImage src={project.image} alt={project.alt} />
             <div className="project-body">
               <h3 className="project-title">{project.title}</h3>
