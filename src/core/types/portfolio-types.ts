@@ -1,3 +1,11 @@
+export type Profile = {
+  name: string;
+  location: string;
+  summary: string;
+  avatar: string;
+  resumeLink: string;
+};
+
 export type ContactCardProps = {
   icon: string;
   label: string;
@@ -54,6 +62,11 @@ export type ProjectLesson = {
   items: string[];
 };
 
+export type ProjectArchitectureDetail = {
+  title: string;
+  description: string[];
+}
+
 export type ProjectDetail = {
   heroTitle: string; // title
   projectType: string; // personal project, academic project
@@ -62,9 +75,9 @@ export type ProjectDetail = {
     description: string[];
   };
   architectureSection: ProjectDetailSection & {
-    description: string[];
+    description: ProjectArchitectureDetail[];
   };
-  architectureNote: string;
+  architectureNote: string[];
   challengesSection: ProjectDetailSection;
   challenges: ProjectDetailChallenge[];
   lessonsSection: ProjectLesson;

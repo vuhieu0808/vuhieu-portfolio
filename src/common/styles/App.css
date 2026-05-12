@@ -677,12 +677,12 @@ h4 {
   background-image:
     radial-gradient(
       circle at 20% 50%,
-      rgba(var(--color-emerald-rgb), 0.05) 0%,
+      rgba(var(--color-white-rgb), 0.05) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 80% 80%,
-      rgba(var(--color-emerald-rgb), 0.03) 0%,
+      rgba(var(--color-white-rgb), 0.03) 0%,
       transparent 50%
     );
   pointer-events: none;
@@ -944,7 +944,7 @@ h4 {
 
 .project-detail-hero-back {
   position: absolute;
-  top: -9rem;
+  top: -8.5rem;
   left: 0.75rem;
   z-index: 2;
   width: fit-content;
@@ -962,17 +962,17 @@ h4 {
   background: var(--color-white);
   color: var(--color-black);
   font-family: var(--font-family-heading);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 
 .project-modal-hero-content h2 {
-  font-size: clamp(1.4rem, 3.4vw, 2.2rem);
+  font-size: clamp(2.4rem, 3.4vw, 2.2rem);
 }
 
 .project-modal-hero-content h3 {
-  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  font-size: clamp(1.25rem, 2.5vw, 1.15rem);
   color: var(--color-white);
 }
 
@@ -994,7 +994,8 @@ h4 {
   gap: 0.4rem;
   color: var(--color-black);
   font-family: var(--font-family-heading);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  font-weight: 900;
   margin-bottom: 1rem;
 }
 
@@ -1083,7 +1084,7 @@ h4 {
 .project-modal-side-card h4 {
   color: var(--color-black);
   font-family: var(--font-family-heading);
-  font-size: 0.76rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 0.8rem;
@@ -1100,7 +1101,7 @@ h4 {
   background: var(--color-black-deep);
   color: var(--color-black);
   font-family: var(--font-family-heading);
-  font-size: 0.68rem;
+  font-size: 0.8rem;
 }
 
 .project-modal-metrics {
@@ -1113,11 +1114,15 @@ h4 {
   justify-content: space-between;
   margin-bottom: 0.35rem;
   font-family: var(--font-family-heading);
-  font-size: 0.68rem;
+  font-size: 0.8rem;
+  gap: 1rem;
 }
 
 .metric-head span:last-child {
   color: var(--color-white);
+  margin-left: auto;
+  text-align: right;
+  flex: 1;
 }
 
 .metric-bar {
@@ -1154,7 +1159,7 @@ h4 {
 .project-modal-footer > span {
   color: var(--color-white);
   font-family: var(--font-family-heading);
-  font-size: 0.73rem;
+  font-size: 0.8rem;
   letter-spacing: 0.08em;
 }
 
@@ -1329,7 +1334,7 @@ h4 {
   background: transparent;
   cursor: pointer;
   font-family: var(--font-family-heading);
-  font-size: 0.73rem;
+  font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding-bottom: 0.25rem;
@@ -1388,6 +1393,56 @@ h4 {
 
 .project-detail-metric-width-99-9 {
   width: 99.9%;
+}
+
+.project-modal-architecture-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.project-modal-architecture-node {
+  background: var(--color-gray);
+  border: 1px solid rgb(var(--color-white-rgb) / 0.08);
+  border-radius: var(--radius-xl);
+  padding: 1.25rem;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.project-modal-architecture-node:hover {
+  transform: translateY(-4px);
+  /* border-color: rgb(var(--color-white-rgb) / 0.18); */
+  /* background: var(--color-black-deep); */
+}
+
+.project-modal-architecture-node-title {
+  font-family: var(--font-family-heading);
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  color: var(--color-white);
+}
+
+.project-modal-architecture-note {
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  padding-left: 2rem;
+  border-left: 2px solid rgb(var(--color-white-rgb));
+  background: var(--color-black);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+.project-modal-architecture-note .project-detail-lessons-item {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.project-modal-architecture-note .project-detail-lessons-item:last-child {
+  margin-bottom: 0;
 }
 
 .blog-modal {

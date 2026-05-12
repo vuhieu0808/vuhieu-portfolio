@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { navItems } from "../core/data/portfolio";
+import { profile } from "../core/data/portfolio";
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -25,7 +26,7 @@ export function MainLayout({ children }: MainLayoutProps) {
             })}
           </nav>
 
-          <Link className="button button-primary header-button" to="/#contact">
+          <Link className="button button-primary header-button" to={profile.resumeLink} target="_blank" rel="noopener noreferrer">
             Download Resume
           </Link>
         </div>

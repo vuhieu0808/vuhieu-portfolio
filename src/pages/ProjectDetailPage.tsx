@@ -113,14 +113,32 @@ export function ProjectDetailPage() {
               </span>
               <span>{detail.architectureSection.title}</span>
             </div>
-            <div className="project-modal-architecture">
-              <span className="material-symbols-outlined project-detail-architecture-icon">
-                account_tree
-              </span>
-              <p className="project-detail-section-text">
-                {detail.architectureNote}
-              </p>
+
+            <div className="project-modal-architecture-grid">
+              {detail.architectureSection.description.map((section, idx) => (
+                <div key={idx} className="project-modal-architecture-node">
+                  <div className="project-modal-architecture-node-title">
+                    {section.title}
+                  </div>
+
+                  <ul className="project-detail-lessons-list">
+                    {section.description.map((item, itemIdx) => (
+                      <li key={itemIdx} className="project-detail-lessons-item">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
+
+            <ul className="project-detail-lessons-list project-modal-architecture-note">
+              {detail.architectureNote.map((note, idx) => (
+                <li key={idx} className="project-detail-lessons-item">
+                  {note}
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Challenges */}

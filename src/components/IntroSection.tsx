@@ -1,4 +1,4 @@
-import vuhieu from "../common/assets/vuhieu.webp";
+import { profile } from "../core/data/portfolio";
 
 export function IntroSection() {
   return (
@@ -9,7 +9,7 @@ export function IntroSection() {
           <div className="avatar-glow-wrapper">
             <div className="avatar-container">
               <img
-                src={vuhieu}
+                src={profile.avatar}
                 alt="Portfolio Avatar"
                 className="avatar-image"
               />
@@ -20,7 +20,7 @@ export function IntroSection() {
         <div className="hero-copy span-7">
           {/* <div className="eyebrow">System Architect // v4.0.1</div> */}
           <h1>
-            Vũ Trần Minh Hiếu
+            {profile.name}
             <br />
           </h1>
           <div className="intro-location">
@@ -38,12 +38,10 @@ export function IntroSection() {
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
-            Ho Chi Minh City, Viet Nam
+            {profile.location}
           </div>
           <p className="lead">
-            I'm a second-year IT student focused on backend development and
-            systems programming. I enjoy building with Node.js and C/C++,
-            solving technical problems, and learning through personal projects.
+            {profile.summary}
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#projects">

@@ -6,8 +6,20 @@ import type {
   Milestone,
   Certification,
   ContactInfo,
+  Profile,
 } from "../types/portfolio-types";
 import backgroundProjectImage from "../../common/assets/background-project.webp";
+import vuhieu from "../../common/assets/vuhieu.webp";
+
+export const profile: Profile = {
+  name: "Vũ Trần Minh Hiếu",
+  location: "Ho Chi Minh City, VietNam",
+  summary:
+    "I'm a second-year IT student focused on backend development and systems programming. I enjoy building with Node.js and C/C++, solving technical problems, and learning through personal projects.",
+  avatar: vuhieu,
+  resumeLink:
+    "https://drive.google.com/file/d/1z8n4YbY9YxkYu9JOEMTA0TuUihD6mlZf/view?usp=drive_link",
+};
 
 export const contactInfo: ContactInfo = {
   email: {
@@ -43,6 +55,7 @@ export const navItems: NavItem[] = [
 ];
 
 export const projects: Project[] = [
+  // Project TDTT: The Right Type
   {
     title: "The Right Type",
     description:
@@ -67,28 +80,67 @@ export const projects: Project[] = [
         title: "MY_ROLE",
         icon: "person",
         description: [
-          "Primarily responsible for backend engineering, including REST API development, real-time communication infrastructure, Firebase integration, authentication middleware, intelligent matching services, AI-assisted messaging pipeline integration, and cloud-based image handling workflows.",
-        ]
+          "Designed and implemented backend APIs",
+          "Built Socket.IO real-time messaging workflows",
+          "Integrated Firebase authentication and middleware protection",
+          "Developed intelligent matching services",
+          "Implemented AI-assisted conversation suggestion pipeline",
+          "Engineered Google Drive + Cloudflare media delivery system",
+        ],
       },
 
       summarySection: {
         title: "TECHNICAL_SUMMARY",
         icon: "description",
         description: [
-          "A work-oriented social platform designed to connect users based on professional compatibility, work style alignment, availability overlap, and conversational engagement. The system integrates intelligent matching algorithms, Socket.IO-powered real-time messaging, Firestore-based chat persistence, AI-generated conversation suggestions, and cloud-backed media synchronization.",
-        ]
+          "A backend-driven work-oriented social platform",
+          "Matches users through multi-factor compatibility scoring",
+          "Supports low-latency real-time messaging via Socket.IO",
+          "Persists conversations using Firestore",
+          "Generates AI-powered contextual conversation suggestions",
+          "Optimizes media delivery through cloud-based asset proxying",
+        ],
       },
 
       architectureSection: {
         title: "SYSTEM_ARCHITECTURE",
         icon: "account_tree",
         description: [
-          "[INTERACTIVE_SCHEMA: React client, Express API server, Socket.IO realtime gateway, Firebase Authentication, Firestore chat persistence, Gemini AI pipeline, Google Drive image storage, matching engine, and recommendation services]",
+          {
+            title: "CLIENT_LAYER",
+            description: ["React client interface layer"],
+          },
+          {
+            title: "API_&_AUTH",
+            description: [
+              "Express REST API gateway",
+              "Firebase authentication service",
+            ],
+          },
+          {
+            title: "REALTIME_&_DATA",
+            description: [
+              "Socket.IO real-time transport",
+              "Firestore message persistence",
+            ],
+          },
+          {
+            title: "INTELLIGENCE_&_MEDIA",
+            description: [
+              "Gemini conversational reasoning pipeline",
+              "Weighted compatibility matching engine",
+              "Recommendation orchestration services",
+              "Google Drive media storage layer",
+            ],
+          },
         ],
       },
 
-      architectureNote:
-        "Event-driven backend architecture combining REST APIs with Socket.IO real-time channels, Firestore persistence, and AI-assisted conversational processing.",
+      architectureNote: [
+        "Hybrid event-driven backend architecture combining REST orchestration with persistent WebSocket channels.",
+        "Conversation state is synchronized through Firestore while Socket.IO handles low-latency message delivery.",
+        "Cloudflare Worker proxying optimizes media retrieval from Google Drive under infrastructure constraints.",
+      ],
 
       challengesSection: {
         title: "CHALLENGES_&_RESOLUTIONS",
@@ -126,6 +178,14 @@ export const projects: Project[] = [
             "Managed authentication, protected API access, and cloud-backed media uploads using Firebase services and middleware validation.",
           solution:
             "Implemented JWT/Firebase authentication middleware with secure image synchronization workflows through Google Drive integration.",
+        },
+
+        {
+          title: "CHALLENGE_05",
+          description:
+            "Firestore storage limitations and infrastructure access constraints prevented direct large-scale media persistence for user-uploaded assets.",
+          solution:
+            "Engineered a custom asset pipeline leveraging Google Drive for decentralized storage and Cloudflare Workers for request proxying, caching, and rate-limit mitigation, enabling efficient image delivery without dedicated cloud storage provisioning.",
         },
       ],
 
@@ -169,301 +229,463 @@ export const projects: Project[] = [
           value: "ECR_CHAIN",
           width: "85%",
         },
+
+        {
+          label: "STORAGE",
+          value: "GOOGLE DRIVE + CLOUDFLARE WORKER",
+          width: "85%",
+        },
       ],
 
       actionButtons: [
         {
           label: "Access Source Code",
-          link: "YOUR_GITHUB_LINK",
-        },
-
-        {
-          label: "Project Report",
-          link: "YOUR_REPORT_LINK",
+          link: "https://github.com/vuhieu0808/TDTT",
         },
       ],
 
-      footerLabel: "BACKEND_SYS // REALTIME_ARCH_V1",
+      footerLabel: "BACKEND_SYS // THE_RIGHT_TYPE_V1",
 
       footerButtons: [
-        // {
-        //   label: "Documentation",
-        //   link: "YOUR_DOC_LINK",
-        // },
-        // {
-        //   label: "API Reference",
-        //   link: "YOUR_API_DOC_LINK",
-        // },
-        // {
-        //   label: "System Overview",
-        //   link: "YOUR_SYSTEM_LINK",
-        // },
+        {
+          label: "Documentation",
+          link: "YOUR_DOC_LINK",
+        },
+        {
+          label: "API Reference",
+          link: "YOUR_API_DOC_LINK",
+        },
+        {
+          label: "System Overview",
+          link: "YOUR_SYSTEM_LINK",
+        },
       ],
     },
   },
+
+  // Project OOP-Game: Object-Oriented Programming Game
   {
-    title: "Service Mesh Orchestrator",
+    title: "Object-Oriented Programming Game",
     description:
-      "A custom control plane for microservices visibility, security, and traffic management using eBPF for low-overhead telemetry.",
-    tags: ["GOLANG", "KUBERNETES", "GRPC"],
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCVj-xkaINHsafed-9EjgRzmu22ebC46cZxeukJMYo_2BMBzn_2kl8UUvguPbR8OLyw7CWyhB9YSb2Q-0g4VjozqYepTEyR566017SerdRANnhJmvuCYUSlG6hCh722KPYjf90kV60Lr-Dj2TCVXxL4NaharYDKhjKBNtqBYc60kOO1eWo3UZxhU8W2NF0ycKaXoHHPAnrlkWwyGHcfN5dJsTXXxz6-7vqfXvpw56x7TaLHT40P8lI0TxDbrnNd2sDpQJsL-0dsLzo",
-    alt: "Neural network style microservices architecture visualization",
+      "A Jump King-inspired 2D platformer built in C++ with SFML, emphasizing OOP principles and software design patterns across physics, rendering, and UI systems.",
+    tags: ["C++", "SFML", "OOP", "DESIGN PATTERNS", "TINYXML2", "TILED"],
+    image: backgroundProjectImage,
+    alt: "2D platformer game with charge-based jump mechanics, tile map rendering, and state-driven menu system",
     detail: {
-      heroTitle: "Project: Service Mesh Orchestrator",
-      projectType: "Personal Project",
-      summarySection: {
-        title: "TECHNICAL_SUMMARY",
-        icon: "description",
-        description: [
-          "A lightweight control plane for service-to-service security, observability, and traffic shaping in Kubernetes clusters.",
-        ],
-      },
-      architectureSection: {
-        title: "SYSTEM_ARCHITECTURE",
-        icon: "account_tree",
-        description: [
-          "[INTERACTIVE_SCHEMA: services topology, message broker, and cache layer]",
-        ],
-      },
-      challengesSection: {
-        title: "CHALLENGES_&_RESOLUTIONS",
-        icon: "bolt",
-      },
-      architectureNote:
-        "Centralized policy engine for mTLS, RBAC, and dynamic rate limiting.",
-      challenges: [
-        {
-          title: "CHALLENGE_01",
-          description:
-            "Centralized policy engine for mTLS, RBAC, and dynamic rate limiting.",
-          solution: "Reduced p95 service-to-service latency overhead by 23%.",
-        },
-        {
-          title: "CHALLENGE_02",
-          description:
-            "eBPF-based telemetry collectors to minimize sidecar overhead.",
-          solution:
-            "Cut incident diagnosis time by exposing request-path traces in real time.",
-        },
-        {
-          title: "CHALLENGE_03",
-          description:
-            "Progressive delivery strategy with weighted routing and automatic rollback hooks.",
-          solution:
-            "Standardized security policies across 40+ internal services.",
-        },
-      ],
+      heroTitle: "Project: Object-Oriented Programming Game",
+      projectType: "Academic Project",
+
       roleSection: {
         title: "MY_ROLE",
         icon: "person",
         description: [
-          "Architected and led the control plane implementation, establishing security policies, telemetry collection standards, and progressive delivery workflows for microservices infrastructure.",
+          "Designed and implemented the entire game architecture from scratch",
+          "Built charge-based jump physics and axis-separated collision detection",
+          "Developed TMX tile map loader using TinyXML2 with multi-layer support",
+          "Applied OOP principles: Encapsulation, Inheritance, Polymorphism, Abstraction",
+          "Implemented State, Observer, Command, and Singleton design patterns",
+          "Engineered a screen-based vertical camera system following the player",
+          "Built a fully navigable menu system with Start, Settings, Pause, and Win states",
         ],
       },
-      lessonsSection: {
-        title: "LESSONS_LEARNED",
-        icon: "lightbulb",
-        items: [
-          "Low-overhead instrumentation (eBPF) proves critical for high-scale deployments where sidecar overhead compounds",
-          "Centralized policy management must balance flexibility with auditability for compliance",
-          "Progressive delivery strategies reduce incident blast radius when coordinated across security and network layers",
-        ],
-      },
-      coreStackTitle: "Core_Stack",
-      vitalsTitle: "Vitals_Dashboard",
-      metrics: [
-        { label: "THROUGHPUT", value: "98% OPTIMIZED", width: "98%" },
-        { label: "UPTIME", value: "99.999%", width: "99.9%" },
-        { label: "DATA_RELIABILITY", value: "SECURE", width: "85%" },
-      ],
-      actionButtons: [
-        { label: "Access Source Code", link: "#source-code" },
-        { label: "Technical Docs", link: "#technical-docs" },
-      ],
-      footerLabel: "SYS_ARCH // ARCH_STABLE_V2",
-      footerButtons: [
-        { label: "Documentation", link: "#documentation" },
-        { label: "API Reference", link: "#api" },
-        { label: "Contact Engineering", link: "#contact" },
-      ],
-    },
-  },
-  {
-    title: "Real-time Analytics Engine",
-    description:
-      "Sub-second query engine for streaming data processing, leveraging partitioned storage and vectorized execution.",
-    tags: ["C++", "APACHE KAFKA", "AWS"],
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCJFeA-hFGZEknWkXr5lwBN_psk2fegRehWf95xrYnQ2OkDqJi0vJzXxxrJwa1c0WDFdJucidgmpJXAC0PTYBf34V3cc6tFX0lA-f9egQ3gygCqW4YvAkyFFrJlNE8y410WV36YIiISnCwwr7kvAnDRaPqQT2op8u_TfR80BFCHfhUG04wHvZOjzzGWg3YEZna4MamSCBWoeKJk1-RYEs4XGA4bDKQs6dJovvCfHAPJZ9w88lUukSBF2TzM4AFOkAXVA6CLhHkiiRI",
-    alt: "High-contrast 3D abstract data blocks in an obsidian space",
-    detail: {
-      heroTitle: "Project: Real-time Analytics Engine",
-      projectType: "Personal Project",
+
       summarySection: {
         title: "TECHNICAL_SUMMARY",
         icon: "description",
         description: [
-          "A streaming-first analytics stack built for low-latency dashboards and operational intelligence on event-heavy systems.",
+          "A single-player 2D platformer inspired by Jump King, built in C++ using SFML",
+          "Charge-based jump mechanic: hold Space to accumulate force, release to launch",
+          "Collision detection resolves X and Y axes independently to prevent tunneling",
+          "Map loaded from .tmx files with separate solid, background, and object layers",
+          "Vertical screen-based camera transitions as the player climbs upward",
+          "Design patterns applied across physics, animation, input, and menu subsystems",
         ],
       },
+
       architectureSection: {
         title: "SYSTEM_ARCHITECTURE",
         icon: "account_tree",
         description: [
-          "[INTERACTIVE_SCHEMA: services topology, message broker, and cache layer]",
+          {
+            title: "GAME_CORE",
+            description: [
+              "Game loop orchestrator (game.cpp)",
+              "GameObject base class with virtual update/draw interface",
+            ],
+          },
+          {
+            title: "PLAYER_&_PHYSICS",
+            description: [
+              "Player inherits from GameObject and Subject (Observer pattern)",
+              "Charge jump system with configurable base and max jump strength",
+              "Axis-separated AABB collision detection against solid tiles",
+            ],
+          },
+          {
+            title: "MAP_&_CAMERA",
+            description: [
+              "TMX map loader using TinyXML2 (background_back, map, background_front, object layers)",
+              "Nearby tile lookup for optimized collision queries",
+              "Screen-based vertical camera with world-bound clamping",
+            ],
+          },
+          {
+            title: "INPUT_&_COMMANDS",
+            description: [
+              "Singleton InputHandler dispatches key events",
+              "Command pattern: MoveLeftCommand, MoveRightCommand, JumpCommand",
+              "MenuCommand hierarchy: NavigateCommand, SelectCommand",
+            ],
+          },
+          {
+            title: "MENU_&_STATES",
+            description: [
+              "State pattern: StartState, SettingsState, PauseState, WinState",
+              "MenuItem struct with action callbacks and highlight color logic",
+              "Map selection via MapInfo struct (file path + display name)",
+            ],
+          },
+          {
+            title: "ANIMATION_&_OBSERVER",
+            description: [
+              "AnimationSystem implements IGameObserver interface",
+              "Player notifies AnimationSystem on state change (idle, running, jumping, falling)",
+              "Sprite sheet frame sequencing driven by player velocity and grounded state",
+            ],
+          },
         ],
       },
+
+      architectureNote: [
+        "The game loop delegates all per-frame logic to a currentState object, keeping Game::run() minimal and extensible.",
+        "Collision detection resolves horizontal and vertical movement in separate passes to eliminate corner-clipping and tunneling artifacts.",
+        "The Observer pattern decouples Player state from AnimationSystem, allowing visual feedback to react to gameplay events without tight coupling.",
+      ],
+
       challengesSection: {
         title: "CHALLENGES_&_RESOLUTIONS",
         icon: "bolt",
       },
-      architectureNote:
-        "Vectorized query execution over partitioned columnar storage.",
+
       challenges: [
         {
           title: "CHALLENGE_01",
           description:
-            "Vectorized query execution over partitioned columnar storage.",
+            "Implementing a charge-based jump where the player holds Space to accumulate force and releases to jump - with a hard cap at maxJumpStrength when held too long.",
           solution:
-            "Delivered median query time below 600ms for dashboard workloads.",
+            "Tracked jumpCharge per frame with a configurable chargeRate and maxCharge cap. Jump velocity is interpolated between baseJumpStrength and maxJumpStrength based on normalized charge ratio, triggered only on key release.",
         },
         {
           title: "CHALLENGE_02",
           description:
-            "Windowed aggregation pipeline optimized for sub-second materialized views.",
+            "Players could tunnel through platforms when moving fast or jumping at platform edges, as collision was checked after position update in a single pass.",
           solution:
-            "Handled multi-source ingestion of 2.3B events/day without downtime.",
+            "Separated movement into two sequential passes: X-axis collision first (blocking horizontal penetration), then Y-axis collision (landing on top / bouncing off the ceiling). Each pass uses predicted bounding boxes rather than post-move positions.",
         },
         {
           title: "CHALLENGE_03",
           description:
-            "Incremental indexing strategy for fast filters on high-cardinality dimensions.",
+            "Loading tile maps from .tmx files while distinguishing collidable tiles (map layer), visual-only tiles (background layers), and spawn/goal positions (object layer).",
           solution:
-            "Lowered cloud compute cost by 18% through adaptive compaction policies.",
+            "Parsed .tmx XML using TinyXML2, routing each named layer to its dedicated grid. Only the map layer populates the solids vector for collision queries; the object layer extracts player_start and player_end coordinates.",
+        },
+        {
+          title: "CHALLENGE_04",
+          description:
+            "The menu had grown to a deeply nested chain of if-else checks against a MenuState enum inside Game::run(), making it hard to extend and maintain.",
+          solution:
+            "Refactored using the State pattern: each menu screen (StartState, SettingsState, PauseState, WinState) encapsulates its own handleInput, update, and render logic. Game::run() delegates entirely to currentState, reducing the loop to under 10 lines.",
+        },
+        {
+          title: "CHALLENGE_05",
+          description:
+            "Circular #include dependencies between menu, input handler, and state headers caused incomplete-type compilation errors.",
+          solution:
+            "Resolved by replacing problematic #include directives in headers with forward declarations and converting member objects to std::unique_ptr, deferring full header inclusion to .cpp files where the complete type is required.",
         },
       ],
-      roleSection: {
-        title: "MY_ROLE",
-        icon: "person",
-        description: [
-          "Designed and optimized the query engine and storage layer, establishing partitioning strategies and incremental indexing to achieve real-time analytics at petabyte scale.",
-        ],
-      },
+
       lessonsSection: {
         title: "LESSONS_LEARNED",
         icon: "lightbulb",
         items: [
-          "Columnar storage with vectorized execution provides exponential latency improvements over row-based stores for analytical workloads",
-          "Adaptive compaction policies must account for both query patterns and ingestion velocity to minimize cost",
-          "Materialized views reduce operational burden but require careful staleness SLAs and cache invalidation logic",
+          "Separating collision resolution into independent X and Y passes eliminates most tunneling and corner-clipping bugs without complex swept-AABB math",
+          "The State pattern dramatically simplifies game loop logic when the application has distinct, mutually exclusive modes (menu, playing, paused, win)",
+          "Forward declarations combined with smart pointers are the cleanest way to break circular header dependencies in C++ without restructuring class hierarchies",
+          "Hitbox and texture dimensions must be synchronized - mismatches create invisible asymmetric collision behavior that is difficult to diagnose",
+          "Using the Observer pattern to decouple AnimationSystem from Player keeps physics logic clean and makes it trivial to add new visual effects without touching gameplay code",
         ],
       },
+
       coreStackTitle: "Core_Stack",
+
       vitalsTitle: "Vitals_Dashboard",
+
       metrics: [
-        { label: "THROUGHPUT", value: "98% OPTIMIZED", width: "98%" },
-        { label: "UPTIME", value: "99.999%", width: "99.9%" },
-        { label: "DATA_RELIABILITY", value: "SECURE", width: "85%" },
+        {
+          label: "LANGUAGE_&_RENDERER",
+          value: "C++ / SFML 2",
+          width: "95%",
+        },
+        {
+          label: "JUMP_PHYSICS",
+          value: "CHARGE-BASED",
+          width: "90%",
+        },
+        {
+          label: "COLLISION_SYSTEM",
+          value: "AXIS-SEPARATED AABB",
+          width: "88%",
+        },
+        {
+          label: "MAP_FORMAT",
+          value: "TMX + TINYXML2",
+          width: "85%",
+        },
+        {
+          label: "DESIGN_PATTERNS",
+          value: "STATE, OBSERVER, COMMAND, SINGLETON",
+          width: "92%",
+        },
       ],
+
       actionButtons: [
-        { label: "Access Source Code", link: "#source-code" },
-        { label: "Technical Docs", link: "#technical-docs" },
+        {
+          label: "Access Source Code",
+          link: "https://github.com/vuhieu0808/OOP-Game",
+        },
+        {
+          label: "UML Diagrams",
+          link: "https://raw.githubusercontent.com/vuhieu0808/OOP-Game/refs/heads/main/OOP_Game_UML.png",
+        },
       ],
-      footerLabel: "SYS_ARCH // ARCH_STABLE_V2",
-      footerButtons: [
-        { label: "Documentation", link: "#documentation" },
-        { label: "API Reference", link: "#api" },
-        { label: "Contact Engineering", link: "#contact" },
-      ],
+
+      footerLabel: "GAME_SYS // VU_HIEU_KING_V1",
+
+      footerButtons: [],
     },
   },
+
+  // Project 03: career search
   {
-    title: "Real-time Analytics Engine",
+    title: "careersearch",
     description:
-      "Sub-second query engine for streaming data processing, leveraging partitioned storage and vectorized execution.",
-    tags: ["C++", "APACHE KAFKA", "AWS"],
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCJFeA-hFGZEknWkXr5lwBN_psk2fegRehWf95xrYnQ2OkDqJi0vJzXxxrJwa1c0WDFdJucidgmpJXAC0PTYBf34V3cc6tFX0lA-f9egQ3gygCqW4YvAkyFFrJlNE8y410WV36YIiISnCwwr7kvAnDRaPqQT2op8u_TfR80BFCHfhUG04wHvZOjzzGWg3YEZna4MamSCBWoeKJk1-RYEs4XGA4bDKQs6dJovvCfHAPJZ9w88lUukSBF2TzM4AFOkAXVA6CLhHkiiRI",
-    alt: "High-contrast 3D abstract data blocks in an obsidian space",
+      "A skill-to-career matching tool that maps user-provided skills to ESCO-standard taxonomies, scores job compatibility, and generates personalized learning roadmaps using graph algorithms.",
+    tags: [
+      "PYTHON",
+      "FLET",
+      "DART",
+      "SENTENCE-TRANSFORMERS",
+      "TARJAN",
+      "TOPOLOGICAL SORT",
+      "GOOGLE GEMINI",
+      "DOCKER",
+      "ESCO API",
+    ],
+    image: backgroundProjectImage,
+    alt: "Career search tool with semantic skill matching, job scoring, and AI-powered learning roadmap generation",
     detail: {
-      heroTitle: "Project: Real-time Analytics Engine",
-      projectType: "Personal Project",
+      heroTitle: "Project: careersearch",
+      projectType: "Academic Group Project",
+
+      roleSection: {
+        title: "MY_ROLE",
+        icon: "person",
+        description: [
+          "Designed and implemented the graph-based learning roadmap engine",
+          "Applied Tarjan's Algorithm to detect strongly connected components (SCCs) in the knowledge prerequisite graph",
+          "Built the condensation graph and DFS-style topological sort for ordered learning stages",
+          "Developed the job compatibility scoring system with weighted required/optional matching",
+          "Implemented the score fusion pipeline merging skill-based and semantic job matching results",
+          "Integrated the roadmap generator with the knowledge detail map for estimated learning time calculation",
+        ],
+      },
+
       summarySection: {
         title: "TECHNICAL_SUMMARY",
         icon: "description",
         description: [
-          "A streaming-first analytics stack built for low-latency dashboards and operational intelligence on event-heavy systems.",
+          "A desktop/web app that translates free-form user skills into ESCO-standard taxonomy terms via semantic embeddings",
+          "Matches translated skills and knowledge against a dataset of 400+ ESCO job profiles with a weighted scoring formula",
+          "Fuses skill-based match scores with semantic job description similarity for ranked job recommendations",
+          "Generates a personalized learning roadmap for any selected job by resolving prerequisite dependencies as a directed graph",
+          "Detects cyclic knowledge dependencies using Tarjan's SCC algorithm and schedules them as parallel learning stages",
+          "Knowledge details and prerequisites enriched via Google Gemini API and stored in a structured JSON knowledge base",
         ],
       },
+
       architectureSection: {
         title: "SYSTEM_ARCHITECTURE",
         icon: "account_tree",
         description: [
-          "[INTERACTIVE_SCHEMA: services topology, message broker, and cache layer]",
+          {
+            title: "DATA_LAYER",
+            description: [
+              "Dart CLI fetches job, skill, and knowledge data from the ESCO REST API",
+              "Google Gemini enriches raw knowledge nodes with level and prerequisite metadata",
+              "Structured JSON assets (job.json, skill.json, knowledge.json, knowledge2.json) loaded at startup via DataLoader",
+            ],
+          },
+          {
+            title: "TRANSLATION_LAYER",
+            description: [
+              "TaxonomyMapper: encodes user inputs and ESCO corpus with nomic-embed-text-v1.5, maps via cosine similarity threshold",
+              "JobMapper: embeds full job profiles (title + description) and matches against a free-text job description input",
+              "Both mappers pre-compute corpus embeddings at init for fast inference",
+            ],
+          },
+          {
+            title: "MATCHING_LAYER",
+            description: [
+              "calculate_match_score: scores jobs using 70/30 weighted split of essential vs optional coverage",
+              "Bonus scoring for total matched items, capped at 100",
+              "merge_job_list: fuses taxonomy-based scores (70%) with semantic job description scores (30%) into a single ranked list",
+            ],
+          },
+          {
+            title: "ROADMAP_LAYER",
+            description: [
+              "GraphUtils builds a prerequisite dependency graph for all missing knowledge items recursively",
+              "Tarjan's Algorithm identifies SCCs - cyclic dependencies scheduled as parallel learning stages",
+              "Condensation graph construction collapses SCCs into single nodes for topological ordering",
+              "DFS-style topological sort produces sequential and parallel learning stages with estimated hours",
+            ],
+          },
+          {
+            title: "PRESENTATION_LAYER",
+            description: [
+              "Flet-based reactive GUI with CupertinoAppBar, chip-based skill input, and adaptive two-column layout",
+              "Job list view with match percentage, navigating to a detail view with roadmap rendering",
+              "Light/dark theme toggle; runs as desktop app or web server (Docker-compatible on port 8000)",
+            ],
+          },
         ],
       },
+
+      architectureNote: [
+        "The translation layer normalizes arbitrary user vocabulary into ESCO taxonomy terms before any matching occurs, making the scoring deterministic and comparable across users.",
+        "The roadmap engine treats knowledge prerequisites as a directed graph and applies Tarjan's SCC algorithm to gracefully handle cyclic dependencies rather than failing or ignoring them.",
+        "Score fusion combines two independent signals - structured skill coverage and unstructured semantic similarity - to reduce false positives from either method alone.",
+      ],
+
       challengesSection: {
         title: "CHALLENGES_&_RESOLUTIONS",
         icon: "bolt",
       },
-      architectureNote:
-        "Vectorized query execution over partitioned columnar storage.",
+
       challenges: [
         {
           title: "CHALLENGE_01",
           description:
-            "Vectorized query execution over partitioned columnar storage.",
+            "User-provided skills are free-form text and do not match ESCO taxonomy labels directly, making set-intersection scoring unreliable.",
           solution:
-            "Delivered median query time below 600ms for dashboard workloads.",
+            "Encoded both user inputs and the full ESCO skill/knowledge corpus using nomic-embed-text-v1.5 sentence embeddings. Cosine similarity with a tuned threshold (0.65) maps each user term to the closest canonical ESCO label before any scoring occurs.",
         },
         {
           title: "CHALLENGE_02",
           description:
-            "Windowed aggregation pipeline optimized for sub-second materialized views.",
+            "Knowledge prerequisites can form cycles (e.g., A requires B and B requires A), which breaks standard topological sort and causes infinite recursion during graph traversal.",
           solution:
-            "Handled multi-source ingestion of 2.3B events/day without downtime.",
+            "Applied Tarjan's SCC algorithm to detect all strongly connected components. Cyclic groups are condensed into single nodes in the condensation graph and scheduled as parallel learning stages, while the remaining acyclic structure is sorted topologically.",
         },
         {
           title: "CHALLENGE_03",
           description:
-            "Incremental indexing strategy for fast filters on high-cardinality dimensions.",
+            "Matching jobs purely on structured skill overlap misses cases where the user describes their intent in natural language rather than listing discrete skills.",
           solution:
-            "Lowered cloud compute cost by 18% through adaptive compaction policies.",
+            "Added a second matching signal via JobMapper: encodes full job profiles (title + description + alt names) and computes semantic similarity against a free-text job description field. The two scores are fused at 70/30 into a final ranked list.",
+        },
+        {
+          title: "CHALLENGE_04",
+          description:
+            "ESCO knowledge nodes lack structured prerequisite data and difficulty levels, which are required for generating a meaningful learning roadmap.",
+          solution:
+            "Wrote a batch prompting pipeline (knowledge_prompt.py) using Google Gemini API to infer level (1-5) and prerequisite lists for each knowledge node, persisting the enriched data as knowledge2.json.",
+        },
+        {
+          title: "CHALLENGE_05",
+          description:
+            "The prerequisite graph for a job's missing knowledge can be very deep, including nodes the user has already learned, inflating the roadmap with unnecessary steps.",
+          solution:
+            "The graph builder accepts a learned_items set and prunes already-learned nodes and their prerequisite edges during recursive graph construction, keeping the roadmap focused only on what remains to be learned.",
         },
       ],
-      roleSection: {
-        title: "MY_ROLE",
-        icon: "person",
-        description: [
-          "Designed and optimized the query engine and storage layer, establishing partitioning strategies and incremental indexing to achieve real-time analytics at petabyte scale.",
-        ],
-      },
+
       lessonsSection: {
         title: "LESSONS_LEARNED",
         icon: "lightbulb",
         items: [
-          "Columnar storage with vectorized execution provides exponential latency improvements over row-based stores for analytical workloads",
-          "Adaptive compaction policies must account for both query patterns and ingestion velocity to minimize cost",
-          "Materialized views reduce operational burden but require careful staleness SLAs and cache invalidation logic",
+          "Semantic embeddings are far more robust than keyword matching for bridging the gap between user vocabulary and formal taxonomies",
+          "Tarjan's SCC algorithm is the right tool for prerequisite graphs - it handles cycles gracefully instead of requiring a strictly acyclic input",
+          "Score fusion from independent signals (structured coverage + semantic similarity) consistently outperforms either signal alone in ranking relevance",
+          "Pre-computing corpus embeddings at initialization is essential - on-demand encoding makes the app unusably slow for real-time interaction",
+          "Enriching raw taxonomy data with an LLM (Gemini) offline, rather than at query time, keeps inference fast and results reproducible",
         ],
       },
+
       coreStackTitle: "Core_Stack",
+
       vitalsTitle: "Vitals_Dashboard",
+
       metrics: [
-        { label: "THROUGHPUT", value: "98% OPTIMIZED", width: "98%" },
-        { label: "UPTIME", value: "99.999%", width: "99.9%" },
-        { label: "DATA_RELIABILITY", value: "SECURE", width: "85%" },
+        {
+          label: "SKILL_TRANSLATION",
+          value: "NOMIC-EMBED-TEXT-V1.5",
+          width: "90%",
+        },
+        {
+          label: "GRAPH_ALGORITHM",
+          value: "TARJAN SCC + TOPO SORT",
+          width: "95%",
+        },
+        {
+          label: "JOB_MATCHING",
+          value: "WEIGHTED SCORE FUSION",
+          width: "88%",
+        },
+        {
+          label: "KNOWLEDGE_ENRICHMENT",
+          value: "GOOGLE GEMINI API",
+          width: "85%",
+        },
+        {
+          label: "DATA_SOURCE",
+          value: "ESCO API (DART FETCHER)",
+          width: "87%",
+        },
+        {
+          label: "DEPLOYMENT",
+          value: "DOCKER / FLET WEB",
+          width: "82%",
+        },
       ],
+
       actionButtons: [
-        { label: "Access Source Code", link: "#source-code" },
-        { label: "Technical Docs", link: "#technical-docs" },
+        {
+          label: "Source Code",
+          link: "https://github.com/zeeptobean/careersearch",
+        },
+        {
+          label: "Presentation Video",
+          link: "https://drive.google.com/file/d/1h_IQd9IKw67JuKoP1ilmf2Ve0UAlqNv5/view?usp=sharing",
+        },
       ],
-      footerLabel: "SYS_ARCH // ARCH_STABLE_V2",
+
+      footerLabel: "CAREER_SYS // CAREERSEARCH_V1",
+
       footerButtons: [
-        { label: "Documentation", link: "#documentation" },
-        { label: "API Reference", link: "#api" },
-        { label: "Contact Engineering", link: "#contact" },
+        {
+          label: "ESCO Reference",
+          link: "https://esco.ec.europa.eu/en",
+        },
+        {
+          label: "Documentation",
+          link: "YOUR_DOC_LINK",
+        },
+        {
+          label: "System Overview",
+          link: "YOUR_SYSTEM_LINK",
+        },
       ],
     },
   },
