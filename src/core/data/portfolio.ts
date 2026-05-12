@@ -24,7 +24,7 @@ export const profile: Profile = {
 
 export const footerLinks: footerLinksType[] = [
   { label: "Source Code", href: "https://github.com/vuhieu0808/vuhieu-portfolio" },
-  { label: "Personal Website", href: "https://vuhieu.com" },
+  { label: "Personal Website", href: "https://vuhieu-portfolio.vercel.app/" },
 ];
 
 export const contactInfo: ContactInfo = {
