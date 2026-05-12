@@ -6,6 +6,11 @@ export type Profile = {
   resumeLink: string;
 };
 
+export type footerLinksType = {
+  label: string;
+  href: string;
+};
+
 export type ContactCardProps = {
   icon: string;
   label: string;

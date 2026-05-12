@@ -7,6 +7,7 @@ import type {
   Certification,
   ContactInfo,
   Profile,
+  footerLinksType,
 } from "../types/portfolio-types";
 import backgroundProjectImage from "../../common/assets/background-project.webp";
 import vuhieu from "../../common/assets/vuhieu.webp";
@@ -20,6 +21,11 @@ export const profile: Profile = {
   resumeLink:
     "https://drive.google.com/file/d/1z8n4YbY9YxkYu9JOEMTA0TuUihD6mlZf/view?usp=drive_link",
 };
+
+export const footerLinks: footerLinksType[] = [
+  { label: "Source Code", href: "https://github.com/vuhieu0808/vuhieu-portfolio" },
+  { label: "Personal Website", href: "https://vuhieu.com" },
+];
 
 export const contactInfo: ContactInfo = {
   email: {
